@@ -1,0 +1,369 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/*-------------------------
+  CSS Chapters:
+  0 - Variables
+  1 - General formatting
+  2 - Header
+  3 - Sidebar
+  4 - Main Content
+  5 - Main Site Footer
+  6 - Media Queries
+-------------------------*/
+/*-------------------------
+  0 - Variables
+-------------------------*/
+/*-------------------------
+  1 - General formatting
+-------------------------*/
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+}
+
+strong {
+  font-weight: 400;
+  display: inline-block;
+  background-color: #FFD480;
+  padding: 0 8px;
+}
+
+body {
+  padding-top: 60px;
+  background-color: #ecf0f1;
+}
+.nav-open section {
+  margin-left: 0;
+}
+.nav-open aside {
+  left: 0;
+}
+
+body, h1, h2, h3, p {
+  font-family: "Open Sans", sans-serif;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.controls {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.sep {
+  content: '';
+  border-right: 1px solid rgba(0, 0, 0, 0.13);
+}
+
+/*-------------------------
+  2 - Header
+-------------------------*/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: #92e4c9;
+  height: 60px;
+  line-height: 60px;
+  color: #fff;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjEuMCIgeDI9IjEuMCIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFiZWNiZiIvPjxzdG9wIG9mZnNldD0iNDUlIiBzdG9wLWNvbG9yPSIjMWJlY2U0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-size: 100%;
+  background-image: -moz-linear-gradient(45deg, #1becbf 0%, #1bece4 45%);
+  background-image: -webkit-linear-gradient(45deg, #1becbf 0%, #1bece4 45%);
+  background-image: linear-gradient(45deg, #1becbf 0%, #1bece4 45%);
+}
+header h1, header button {
+  display: inline-block;
+}
+header h1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+header .utils {
+  margin-right: 15px;
+}
+header .utils a {
+  display: inline-block;
+  padding: 0 5px;
+  margin-right: -3px;
+}
+header .utils a {
+  color: rgba(0, 0, 0, 0.3);
+  -moz-transition: color 0.3s linear;
+  -o-transition: color 0.3s linear;
+  -webkit-transition: color 0.3s linear;
+  transition: color 0.3s linear;
+}
+header .utils a:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+header button {
+  cursor: pointer;
+  color: #fff;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  height: 60px;
+  width: 60px;
+  vertical-align: top;
+  background: transparent;
+  border-right: 1px solid rgba(255, 255, 255, 0.7);
+  margin-right: 15px;
+  -moz-transition: background-color 0.3s linear;
+  -o-transition: background-color 0.3s linear;
+  -webkit-transition: background-color 0.3s linear;
+  transition: background-color 0.3s linear;
+}
+header button:hover, header button:focus, header button.active {
+  outline: none;
+}
+header button:hover, header button.active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*-------------------------
+  3 - Sidebar
+-------------------------*/
+aside {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  left: -100%;
+  background-color: #2A3744;
+  padding: 20px;
+  -moz-transition: left 0.4s ease, width 0.5s cubic-bezier(0.525, -0.35, 0.115, 1.335);
+  -o-transition: left 0.4s ease, width 0.5s cubic-bezier(0.525, -0.35, 0.115, 1.335);
+  -webkit-transition: left 0.4s ease, width 0.5s cubic-bezier(0.525, -0.35, 0.115, 1.335);
+  transition: left 0.4s ease, width 0.5s cubic-bezier(0.525, -0.35, 0.115, 1.335);
+}
+aside a {
+  padding: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  -moz-transition: background-color 0.3s, color 0.3s;
+  -o-transition: background-color 0.3s, color 0.3s;
+  -webkit-transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
+}
+aside a:hover {
+  color: #fff;
+}
+aside a i,
+aside a img {
+  width: 20px;
+  text-align: center;
+  margin-right: 6px;
+}
+aside a,
+aside input[type="search"] {
+  color: #fff;
+  display: block;
+  font-weight: 300;
+  width: 100%;
+  padding: 8px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+aside input[type="search"] {
+  -webkit-appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #344454;
+  width: 100%;
+  font-size: 14px;
+  padding: 8px;
+  padding-left: 25px;
+  -moz-transition: background-color 0.3s, border 0.3s;
+  -o-transition: background-color 0.3s, border 0.3s;
+  -webkit-transition: background-color 0.3s, border 0.3s;
+  transition: background-color 0.3s, border 0.3s;
+}
+aside input[type="search"]:hover, aside input[type="search"]:focus {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: #3a4b5d;
+}
+aside input[type="search"] + label {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  color: rgba(0, 0, 0, 0.5);
+}
+aside .site-nav a {
+  margin-bottom: 3px;
+}
+aside .site-nav a.active, aside .site-nav a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+aside .site-nav a.active i {
+  color: #24FFCE;
+}
+aside footer {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  width: 100%;
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  padding-left: 10px;
+}
+aside footer a {
+  padding: 8px;
+}
+aside footer .avatar img {
+  max-width: 20px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+  display: inline-block;
+  vertical-align: -3px;
+  margin-right: 10px;
+}
+
+/*-------------------------
+  4 - Main Content
+-------------------------*/
+section {
+  -moz-transition: margin-left 0.4s ease;
+  -o-transition: margin-left 0.4s ease;
+  -webkit-transition: margin-left 0.4s ease;
+  transition: margin-left 0.4s ease;
+}
+section article {
+  padding: 20px;
+}
+section article h2 {
+  font-weight: 300;
+  font-size: 24px;
+}
+section article p {
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/*-------------------------
+  5 - Main Site Footer
+-------------------------*/
+.site-footer {
+  background: #f7846a;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  background-color: #fafafa;
+  border-top: 1px solid #ddd;
+  font-size: 12px;
+}
+.site-footer a {
+  color: #2A3744;
+  display: inline-block;
+  margin-right: -4px;
+  padding: 0 8px;
+}
+.site-footer a.feedback {
+  color: #FF870E;
+}
+
+/*-------------------------
+  6 - Media Queries
+-------------------------*/
+@media (min-width: 500px) {
+  .nav-open section {
+    margin-left: 250px;
+  }
+
+  aside {
+    position: fixed;
+    top: 0;
+    padding-top: 80px;
+    width: 250px;
+  }
+
+  .site-footer {
+    position: fixed;
+    z-index: 5;
+    bottom: 0;
+    left: 0;
+  }
+}

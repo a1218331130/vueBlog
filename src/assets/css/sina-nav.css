@@ -1,0 +1,827 @@
+/**
+ * Template name: Sina-nav Multi Purpose Menu
+ * Template URI: https://github.com/shaonsina/sina-nav-4
+ * Version: 1.2
+ * Author: shaonsina
+ */
+.search-box {
+  padding: 8px 0;
+  display: none;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #f6f6f6;
+}
+.search-box input.form-control {
+  border: 0;
+  box-shadow: 0px 0px 0px;
+  color: #222;
+  background-color: transparent;
+}
+.search-box .search-input {
+  float: left;
+  width: calc( 100% - 108px );
+}
+.search-box .search-addon {
+  padding: 12px 20px;
+  float: left;
+  color: #222;
+  background-color: transparent;
+}
+.search-box .search-addon.close-search {
+  cursor: pointer;
+}
+
+.sina-nav {
+  margin-bottom: 0;
+  border-radius: 0px;
+  min-height: 60px;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  transition: color, background 0.3s ease-in-out;
+  background: #fff;
+  border: 1px solid #eee;
+}
+.sina-nav ul,
+.sina-nav ul ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.sina-nav ul li a {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  line-height: 20px;
+  text-decoration: none;
+  white-space: normal;
+  transition: all 0.3s ease-in-out;
+  background: transparent;
+}
+.sina-nav .animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.sina-nav .container,
+.sina-nav .container-fluid {
+  position: relative;
+}
+.sina-nav .sina-brand {
+  height: 60px;
+  max-width: 210px;
+  padding: 0;
+  margin: 0 50px 0 0;
+  float: left;
+  text-decoration: none;
+}
+.sina-nav .sina-brand > img {
+  display: block;
+  height: 100%;
+  padding: 6px 0;
+}
+.sina-nav .sina-brand h2 {
+  color: #222;
+  font-size: 30px;
+  line-height: 36px;
+  margin: 0;
+  padding: 0;
+}
+.sina-nav .sina-brand p {
+  color: #222;
+  font-size: 14px;
+  line-height: 16px;
+  margin: 0;
+  padding: 0;
+}
+.sina-nav .logo-primary, .sina-nav.navbar-transparent .logo-secondary {
+  display: inline-block;
+}
+.sina-nav .logo-secondary, .sina-nav.navbar-transparent .logo-primary {
+  display: none;
+}
+.sina-nav .dropdown-toggle::after {
+  width: inherit;
+  height: inherit;
+  border: 0;
+  margin: 0;
+}
+.sina-nav .dropdown {
+  position: relative;
+}
+.sina-nav .dropdown-menu {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+}
+.sina-nav .open > .dropdown-menu {
+  display: block;
+}
+.sina-nav .collapse:not(.show) {
+  display: none;
+}
+.sina-nav .collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
+}
+.sina-nav .navbar-collapse {
+  overflow-x: visible;
+  padding-right: 15px;
+  padding-left: 15px;
+  -webkit-overflow-scrolling: touch;
+}
+.sina-nav .navbar-collapse.show {
+  overflow-y: auto;
+}
+.sina-nav .navbar-collapse:before,
+.sina-nav .navbar-collapse:after {
+  content: " ";
+  display: table;
+}
+.sina-nav .navbar-collapse:after {
+  clear: both;
+}
+.sina-nav .sina-menu li a {
+  position: relative;
+  display: block;
+  font-size: 14px;
+}
+.sina-nav .sina-menu li .fa-icon-left {
+  margin-right: 8px;
+}
+.sina-nav .sina-menu li .fa-icon-right {
+  margin-left: 8px;
+}
+.sina-nav .sina-menu > li > a {
+  padding: 20px 15px;
+  max-width: 160px;
+  color: #222;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+.sina-nav .sina-menu > li.active > a,
+.sina-nav .sina-menu > li > a:hover,
+.sina-nav .sina-menu > li > a:focus {
+  color: #1085e4;
+  background-color: transparent;
+}
+.sina-nav .sina-menu li .description {
+  font-style: italic;
+  font-size: 90%;
+  margin: 6px 0 0;
+  font-weight: 400;
+}
+.sina-nav .sina-menu .dropdown-menu {
+  background-color: #fcfcfc;
+  margin: 0;
+}
+.sina-nav .sina-menu .dropdown-menu li a {
+  color: #222;
+}
+.sina-nav .sina-menu .dropdown-menu li.active > a,
+.sina-nav .sina-menu .dropdown-menu li > a:hover,
+.sina-nav .sina-menu .dropdown-menu li > a:focus {
+  color: #222;
+  background-color: #f6f6f6;
+}
+.sina-nav .sina-menu .dropdown-toggle:focus {
+  outline: 0;
+}
+.sina-nav .sina-menu .mega-menu-col-title:before,
+.sina-nav .sina-menu .dropdown .dropdown-toggle:before,
+.sina-nav .sina-menu .dropdown .dropdown-toggle:after {
+  font-family: 'FontAwesome';
+}
+.sina-nav.navbar-reverse .search-box .form-control {
+  text-align: right;
+}
+.sina-nav .navbar-collapse {
+  padding: 0;
+}
+.sina-nav .menu-item-has-mega-menu.dropdown {
+  position: static;
+}
+.sina-nav .menu-item-has-mega-menu.dropdown .mega-menu.dropdown-menu {
+  width: 100%;
+  padding: 0;
+  background-color: #fcfcfc;
+}
+.sina-nav .menu-item-has-mega-menu.dropdown .mega-menu-row {
+  width: 100%;
+  float: left;
+}
+.sina-nav .menu-item-has-mega-menu.dropdown .mega-menu-col {
+  list-style: none;
+  color: #222;
+}
+.sina-nav .menu-item-has-mega-menu.dropdown .mega-menu-col a {
+  color: #222;
+}
+.sina-nav .menu-item-has-mega-menu.dropdown .mega-menu-col .active > a,
+.sina-nav .menu-item-has-mega-menu.dropdown .mega-menu-col > a:hover,
+.sina-nav .menu-item-has-mega-menu.dropdown .mega-menu-col > a:focus {
+  color: #1085e4;
+  background: transparent;
+}
+.sina-nav .menu-item-has-mega-menu.dropdown .mega-menu-col-title {
+  font-size: 15px;
+  line-height: 20px;
+  margin: 0;
+}
+.sina-nav.navbar-fixed {
+  position: relative;
+}
+.sina-nav .extension-nav {
+  float: right;
+  margin-left: 50px;
+}
+.sina-nav .extension-nav > ul {
+  float: left;
+}
+.sina-nav .extension-nav > ul > li {
+  float: left;
+}
+.sina-nav .extension-nav > ul > li > a {
+  display: block;
+  padding: 20px 12px;
+  position: relative;
+  font-size: 18px;
+  color: #222;
+}
+.sina-nav .extension-nav > ul > li > a:hover, .sina-nav .extension-nav > ul > li > a:focus {
+  color: #1085e4;
+  background-color: transparent;
+}
+.sina-nav .extension-nav > ul > li > a .shop-badge {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  padding: 4px 5px;
+  font-size: 10px;
+  line-height: 10px;
+  border-radius: 50%;
+  background-color: #1085e4;
+  color: #fff;
+}
+.sina-nav .extension-nav > ul > li.dropdown .dropdown-menu {
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px;
+  margin-left: 40px;
+  width: 232px;
+  left: -232px;
+  background-color: #fcfcfc;
+  border: solid 1px #eee;
+}
+.sina-nav .extension-nav > ul > li .shop-menu > li {
+  padding: 12px 15px;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: solid 1px #eee;
+}
+.sina-nav .extension-nav > ul > li .shop-menu > li:last-child {
+  border-bottom: 0;
+}
+.sina-nav .extension-nav > ul > li .shop-menu > li .shop-item-photo {
+  padding: 0;
+  float: left;
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  border: solid 1px #eee;
+}
+.sina-nav .extension-nav > ul > li .shop-menu > li .shop-item-link,
+.sina-nav .extension-nav > ul > li .shop-menu > li .shop-item-price {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 20px;
+  display: inline-block;
+  max-width: 130px;
+  color: #222;
+}
+.sina-nav .extension-nav > ul > li .shop-menu > li .shop-item-link {
+  color: #1085e4;
+}
+.sina-nav .extension-nav > ul > li .shop-menu > li .shop-item-link:hover, .sina-nav .extension-nav > ul > li .shop-menu > li .shop-item-link:focus {
+  background-color: transparent;
+}
+.sina-nav .extension-nav > ul > li .shop-menu > li.shop-total-price .shop-btn {
+  display: inline-block;
+  color: #222;
+  background-color: #fcfcfc;
+}
+.sina-nav .extension-nav > ul > li .shop-menu > li.shop-total-price .shop-btn:hover, .sina-nav .extension-nav > ul > li .shop-menu > li.shop-total-price .shop-btn:focus {
+  background-color: #1085e4;
+  color: #eee;
+}
+.sina-nav .extension-nav > ul > li .shop-menu > li.shop-total-price > span {
+  color: #222;
+  float: right;
+  font-weight: 700;
+  margin-top: 5px;
+}
+.sina-nav.navbar-fixed.navbar-freez.wp-topbar, .sina-nav.mobile-sidebar.wp-topbar .navbar-collapse, .sina-nav.wp-topbar .widget-bar {
+  top: 32px;
+}
+.sina-nav .widget-bar {
+  position: fixed;
+  overflow-y: auto;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  padding: 20px;
+  height: 100%;
+  z-index: 999;
+  transition: all 0.3s ease-in-out;
+  background-color: #333;
+}
+.sina-nav .widget-bar.on {
+  right: 0;
+}
+.sina-nav .widget-bar .widget {
+  margin-bottom: 30px;
+}
+.sina-nav .widget-bar .widget .link li a {
+  color: #ccc;
+  font-size: 14px;
+}
+.sina-nav .widget-bar .widget .link li a:focus, .sina-nav .widget-bar .widget .link li a:hover {
+  color: #fcfcfc;
+}
+.sina-nav .widget-bar .widget .title {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #ccc;
+  font-weight: 700;
+}
+.sina-nav .widget-bar .close-widget-bar {
+  float: right;
+  font-size: 16px;
+  color: #ccc;
+}
+.sina-nav.navbar-reverse .widget-bar {
+  right: inherit;
+  left: -300px;
+  text-align: right;
+}
+.sina-nav.navbar-reverse .widget-bar.on {
+  right: inherit;
+  left: 0;
+}
+.sina-nav.navbar-reverse .widget-bar .close-widget-bar {
+  float: left;
+}
+
+@media (min-width: 992px) {
+  .sina-nav .navbar-toggle {
+    display: none;
+  }
+  .sina-nav .navbar-collapse.collapse {
+    display: block;
+  }
+  .sina-nav.navbar-reverse .sina-nav-header {
+    float: right;
+  }
+  .sina-nav.navbar-reverse .sina-brand {
+    margin: 0 0 0 50px;
+    text-align: right;
+  }
+  .sina-nav.navbar-reverse .extension-nav {
+    float: left;
+    margin-right: 50px;
+    margin-left: 0;
+  }
+  .sina-nav.navbar-reverse .extension-nav li {
+    float: right;
+  }
+  .sina-nav .sina-menu {
+    float: left;
+  }
+  .sina-nav .sina-menu > li {
+    float: left;
+  }
+  .sina-nav .sina-menu.navbar-left {
+    float: left !important;
+  }
+  .sina-nav .sina-menu > .dropdown > .dropdown-toggle:after {
+    content: "\f0d7";
+    position: absolute;
+    top: 20px;
+    right: 5px;
+  }
+  .sina-nav .sina-menu .dropdown .dropdown-menu {
+    box-shadow: 0px 0px 0px;
+    border-radius: 0px;
+    width: 200px;
+    border: solid 1px #eee;
+  }
+  .sina-nav .sina-menu .dropdown .dropdown-menu .dropdown-menu {
+    left: 100%;
+    top: 0;
+  }
+  .sina-nav .sina-menu .dropdown .dropdown-menu .dropdown:first-child .dropdown-menu {
+    top: -1px;
+  }
+  .sina-nav .sina-menu .dropdown .dropdown-menu > li > a {
+    padding: 10px 12px;
+    border-top: solid 1px #eee;
+  }
+  .sina-nav .sina-menu .dropdown .dropdown-menu > li:first-child > a {
+    border-top: 0;
+  }
+  .sina-nav .sina-menu .dropdown .dropdown-menu .dropdown > .dropdown-toggle {
+    padding: 10px 20px 10px 12px;
+  }
+  .sina-nav .sina-menu .dropdown .dropdown-menu .dropdown > .dropdown-toggle:before {
+    float: right;
+    content: "\f105";
+    position: absolute;
+    right: 8px;
+  }
+  .sina-nav .sina-menu .dropdown .mega-menu.dropdown-menu {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  .sina-nav .sina-menu .mega-menu-col {
+    padding: 10px 15px;
+    float: left;
+  }
+  .sina-nav .sina-menu .mega-menu-col .sub-menu a {
+    padding: 6px 10px;
+    display: inline-block;
+  }
+  .sina-nav .sina-menu .mega-menu-col .sub-menu a:hover, .sina-nav .sina-menu .mega-menu-col .sub-menu a:focus {
+    color: #1085e4;
+    background: transparent;
+  }
+  .sina-nav .sina-menu .mega-menu-col-title {
+    font-weight: 700;
+    padding: 6px 10px;
+    display: inline-block;
+  }
+  .sina-nav .sina-menu .mega-menu-col-content {
+    padding: 4px 10px;
+  }
+  .sina-nav .sina-menu.navbar-right {
+    float: right !important;
+    left: auto;
+    right: 0;
+  }
+  .sina-nav .sina-menu.navbar-right .mega-menu.dropdown-menu .mega-menu-col {
+    float: right;
+  }
+  .sina-nav .sina-menu.navbar-right .dropdown-menu .dropdown-menu {
+    left: -200px;
+  }
+  .sina-nav .sina-menu.navbar-right > .dropdown > .dropdown-toggle:after {
+    left: 5px;
+  }
+  .sina-nav .sina-menu.navbar-right .dropdown .dropdown-menu {
+    text-align: right;
+  }
+  .sina-nav .sina-menu.navbar-right .dropdown .dropdown-menu .dropdown > .dropdown-toggle {
+    padding: 10px 12px 10px 20px;
+  }
+  .sina-nav .sina-menu.navbar-right .dropdown .dropdown-menu .dropdown > .dropdown-toggle:before {
+    float: left;
+    content: "\f104";
+    left: 8px;
+    right: inherit;
+  }
+  .sina-nav.navbar-fixed.navbar-freez {
+    position: fixed !important;
+    top: 0;
+  }
+  .sina-nav.navbar-transparent {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .sina-nav.navbar-transparent .sina-brand {
+    color: #dddddd;
+  }
+  .sina-nav.navbar-transparent .extension-nav > ul > li > a,
+  .sina-nav.navbar-transparent .sina-menu > li > a {
+    color: #dddddd;
+  }
+  .sina-nav.navbar-transparent .extension-nav > ul > li.active > a,
+  .sina-nav.navbar-transparent .extension-nav > ul > li > a:hover,
+  .sina-nav.navbar-transparent .extension-nav > ul > li > a:focus,
+  .sina-nav.navbar-transparent .sina-menu > li.active > a,
+  .sina-nav.navbar-transparent .sina-menu > li > a:hover,
+  .sina-nav.navbar-transparent .sina-menu > li > a:focus {
+    color: #1085e4;
+  }
+  .sina-nav.logo-center .sina-nav-header {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+  }
+  .sina-nav.logo-center .sina-brand {
+    float: none;
+    display: inline-block;
+    margin: 0;
+  }
+  .sina-nav.logo-center .navbar-collapse {
+    text-align: center;
+  }
+  .sina-nav.logo-center .navbar-collapse .col-half {
+    width: 50%;
+    float: left;
+    display: block;
+  }
+  .sina-nav.logo-center .navbar-collapse .col-half.left {
+    text-align: right;
+    padding-right: 120px;
+  }
+  .sina-nav.logo-center .navbar-collapse .col-half.right {
+    text-align: left;
+    padding-left: 120px;
+  }
+  .sina-nav.logo-center .sina-menu {
+    float: none !important;
+    margin: 0 0 -7px 0;
+    display: inline-block;
+    padding: 0;
+  }
+  .sina-nav.logo-center .sina-menu > li > .dropdown-menu {
+    margin-top: -1px;
+  }
+  .sina-nav.logo-center .sina-menu > li > .dropdown-menu.mega-menu {
+    margin-top: 0;
+  }
+  .sina-nav .sina-menu.navbar-center {
+    float: none;
+    margin: 0 auto;
+    display: table;
+  }
+}
+@media (max-width: 991px) {
+  .sina-nav {
+    background-color: #fff;
+    border-color: #eee;
+  }
+  .sina-nav.navbar-fixed.navbar-freez.wp-topbar {
+    top: inherit;
+  }
+  .sina-nav .sina-brand {
+    display: inline-block;
+    float: none;
+    text-align: center;
+    margin: 0 0 0 -35px;
+    color: #222;
+  }
+  .sina-nav .sina-brand h2 {
+    margin-top: 0;
+  }
+  .sina-nav.navbar-reverse .sina-brand, .sina-nav.navbar-reverse .sina-brand {
+    margin: 0 -26px 0 15px;
+  }
+  .sina-nav .sina-nav-header {
+    float: none;
+    display: block;
+    text-align: center;
+    height: 60px;
+  }
+  .sina-nav .navbar-toggle {
+    display: inline-block;
+    position: relative;
+    float: left;
+    font-size: 18px;
+    margin: 13px 0 0 0;
+    padding: 4px 10px;
+    width: 38px;
+    cursor: pointer;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+    color: #222;
+  }
+  .sina-nav .navbar-toggle:hover, .sina-nav .navbar-toggle:focus {
+    outline: 0;
+    color: #222;
+    background-color: #f6f6f6;
+  }
+  .sina-nav.navbar-reverse .navbar-toggle {
+    float: right;
+  }
+  .sina-nav.navbar-reverse .extension-nav {
+    left: 15px;
+    right: inherit;
+    margin-left: 0;
+    margin-right: 15px;
+  }
+  .sina-nav.navbar-reverse .extension-nav li {
+    float: right;
+  }
+  .sina-nav .navbar-collapse {
+    overflow-y: auto !important;
+    border: 1px solid #eee;
+  }
+  .sina-nav .mega-menu-col .mega-menu-col-title,
+  .sina-nav .dropdown .dropdown-toggle {
+    padding: 12px 24px 12px 12px;
+  }
+  .sina-nav .mega-menu-col .mega-menu-col-title:before,
+  .sina-nav .dropdown .dropdown-toggle:before {
+    float: right;
+    content: "\f105";
+    font-size: 16px;
+    position: absolute;
+    right: 8px;
+  }
+  .sina-nav .mega-menu-col.on .mega-menu-col-title:before,
+  .sina-nav .dropdown.on > .dropdown-toggle:before {
+    content: "\f107";
+  }
+  .sina-nav .sina-menu {
+    float: none !important;
+  }
+  .sina-nav .sina-menu li {
+    float: none;
+  }
+  .sina-nav .sina-menu li .mega-menu-col-title,
+  .sina-nav .sina-menu li a {
+    max-width: inherit;
+    padding: 12px;
+    font-weight: 400;
+    display: block;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    transition: all 0.3s ease-in-out;
+    color: #222;
+    border-top: solid 1px #eee;
+  }
+  .sina-nav .sina-menu li a:hover,
+  .sina-nav .sina-menu li a:focus, .sina-nav .sina-menu li.active > a,
+  .sina-nav .sina-menu li .mega-menu-col-title:hover,
+  .sina-nav .sina-menu li .mega-menu.dropdown-menu .mega-menu-col .active > a,
+  .sina-nav .sina-menu li .dropdown-menu li.active > a,
+  .sina-nav .sina-menu li .dropdown-menu li a:hover,
+  .sina-nav .sina-menu li .dropdown-menu li a:focus,
+  .sina-nav .sina-menu li .mega-menu .mega-menu-col ul li a:hover,
+  .sina-nav .sina-menu li .mega-menu .mega-menu-col ul li a:focus {
+    color: #222;
+    background-color: #f6f6f6;
+  }
+  .sina-nav .sina-menu > li:first-child > a {
+    border-top: 0;
+  }
+  .sina-nav .sina-menu .dropdown .mega-menu.dropdown-menu,
+  .sina-nav .sina-menu .dropdown .dropdown-menu {
+    float: none;
+    position: relative;
+    left: 0;
+    box-shadow: 0px 0px 0px;
+    border-radius: 0px 0px 0px;
+    border: 0;
+    background-color: transparent;
+  }
+  .sina-nav .sina-menu .dropdown .mega-menu.dropdown-menu .mega-menu-row {
+    float: none;
+  }
+  .sina-nav .sina-menu .dropdown .mega-menu.dropdown-menu .mega-menu-row .mega-menu-col {
+    padding: 0;
+  }
+  .sina-nav .sina-menu .dropdown .mega-menu.dropdown-menu .mega-menu-row .mega-menu-col-title {
+    font-size: 14px;
+  }
+  .sina-nav.navbar-transparent {
+    border-color: transparent;
+  }
+  .sina-nav.logo-center .sina-menu .dropdown .dropdown-toggle:before {
+    content: "\f105";
+    float: right;
+  }
+  .sina-nav.logo-center .sina-menu .dropdown.on > .dropdown-toggle:before {
+    content: "\f107";
+  }
+  .sina-nav.logo-center .col-half:first-child .sina-menu {
+    padding-bottom: 0;
+  }
+  .sina-nav.logo-center .col-half:first-child .sina-menu > li:first-child > a {
+    border-top: 0;
+  }
+  .sina-nav.logo-center .col-half:last-child .sina-menu {
+    padding-top: 0;
+  }
+  .sina-nav.logo-center .col-half:last-child .sina-menu > li:first-child > a {
+    border-top: solid 1px #eee;
+  }
+  .sina-nav .extension-nav {
+    position: absolute;
+    right: 15px;
+    margin-right: 0;
+  }
+  .sina-nav .extension-nav > ul > .dropdown > .dropdown-toggle,
+  .sina-nav .extension-nav > ul > li > a {
+    padding: 20px 10px;
+    color: #222;
+  }
+  .sina-nav .extension-nav > ul > .dropdown > .dropdown-toggle:hover, .sina-nav .extension-nav > ul > .dropdown > .dropdown-toggle:focus,
+  .sina-nav .extension-nav > ul > li > a:hover,
+  .sina-nav .extension-nav > ul > li > a:focus {
+    color: #222;
+  }
+  .sina-nav .extension-nav > ul .dropdown > .dropdown-toggle:before {
+    display: none;
+  }
+
+  .sina-nav.mobile-sidebar .navbar-collapse {
+    position: fixed;
+    overflow-x: hidden;
+    display: block;
+    z-index: 99;
+    width: 300px;
+    height: 100% !important;
+    max-height: 100%;
+    left: -300px;
+    top: 0;
+    padding: 0 0 60px;
+    margin: 0;
+    transition: all 0.3s ease-in-out;
+    background-color: #fcfcfc;
+  }
+  .sina-nav.mobile-sidebar .navbar-collapse.show {
+    left: 0;
+  }
+  .sina-nav.mobile-sidebar .navbar-collapse .mega-menu-col {
+    width: 100%;
+    max-width: 100%;
+  }
+  .sina-nav.mobile-sidebar .sina-menu {
+    padding: 15px;
+    margin: 0;
+  }
+  .sina-nav.mobile-sidebar.navbar-reverse .navbar-collapse {
+    right: -300px;
+    left: inherit;
+  }
+  .sina-nav.mobile-sidebar.navbar-reverse .navbar-collapse.show {
+    right: 0;
+    left: inherit;
+  }
+
+  body.mobile-left > .wrapper {
+    margin-left: 300px;
+    margin-right: -300px;
+  }
+  body.mobile-right > .wrapper {
+    margin-right: 300px;
+    margin-left: -300px;
+  }
+  body > .wrapper {
+    transition: all 0.3s ease-in-out;
+    position: relative;
+  }
+}
+@media (max-width: 767px) {
+  .sina-nav .sina-nav-header,
+  .sina-nav .navbar-collapse {
+    margin: 0;
+  }
+  .sina-nav .sina-brand.social-on {
+    margin-top: 60px;
+  }
+}
+@media (max-width: 479px) {
+  .sina-nav .widget-bar {
+    right: -250px;
+    width: 250px;
+  }
+
+  body.on-side {
+    margin-left: -250px;
+  }
+
+  body.mobile-left > .wrapper {
+    margin-left: 250px;
+    margin-right: -250px;
+  }
+
+  body.mobile-right > .wrapper {
+    margin-right: 250px;
+    margin-left: -250px;
+  }
+
+  .sina-nav.mobile-sidebar .navbar-collapse {
+    width: 250px;
+    left: -250px;
+  }
+}
+@media (max-width: 782px) {
+  .sina-nav.mobile-sidebar.wp-topbar .navbar-collapse {
+    top: 46px;
+  }
+  .sina-nav.wp-topbar .widget-bar {
+    top: 46px;
+  }
+}

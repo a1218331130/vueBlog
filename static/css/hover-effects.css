@@ -1,0 +1,214 @@
+
+.container{margin: 0 auto; max-width: 1160px;}
+h2{color: #fff; float: left; width: 100%; font-size: 24px; font-weight: 400; text-align: center; padding: 50px 0 40px; position: relative; z-index: 50;}
+h2 span{position: relative; padding-bottom: 10px;}
+h2 span:after{content: ""; width: 50%; height: 3px; background-color: #fff; position: absolute; left: 25%; bottom: 0;}
+*{margin: 0; padding: 0; box-sizing: border-box;}
+.full-length img{max-width: 100%; vertical-align: middle;}
+.full-length{width: 100%; float: left; padding-bottom: 30px;overflow: hidden;padding-left: 5%;}
+ul{margin: 0 -1.5%;}
+.geBan li[data-v-7c5ce25b] {
+    float: left;
+    width: 22%;
+    margin: 10px 1%;
+    list-style: none;
+}
+
+h3{font-size: 14px; margin: 5px 0 10px;}
+p{font-weight: 300; line-height: 20px; font-size: 14px; margin-bottom: 15px;}
+.btn{display: inline-block; padding: 5px 10px; font-size: 14px; color: #fff; border: 2px solid #4d92d9; background-color: #4d92d9; text-decoration: none; transition: 0.4s;}
+.btn:hover{background-color: transparent; color: #4d92d9; transition: 0.4s;}
+.text-desc{position: absolute; left: 0; top: 0; background-color: #fff; height: 100%; opacity: 0; width: 100%; padding: 20px;}
+/*= Reset CSS End
+================= *
+
+/* effect-1 css */
+.port-1{float: left; width: 100%; position: relative; overflow: hidden; text-align: center; border: 4px solid rgba(255, 255, 255, 0.9);}
+.port-1 .text-desc{opacity: 0.9; top: -100%; transition: 0.5s; color: #000; padding: 55px 20px 20px;}
+.port-1 img{transition: 0.5s;}
+.port-1:hover img{transform: scale(1.2);}
+
+.port-1.effect-1:hover .text-desc{top: 0;}
+
+.port-1.effect-2 .text-desc{top: auto; bottom: -100%;}
+.port-1.effect-2:hover .text-desc{bottom: 0;}
+
+.port-1.effect-3 .text-desc{top: 50%; left: 50%; width: 0; height: 0; overflow: hidden; padding: 0;}
+.port-1.effect-3:hover .text-desc{width: 100%; top: 0; left: 0; height: 100%; padding: 15px 20px 20px;}
+
+/*= Media Screen CSS
+==================== */
+@media only screen and (max-width: 1090px){
+	ul{width: 340px; margin: 0 auto;}
+	li{width: 100%; margin: 20px 0;}
+	.port-5.effect-1 {z-index: 19;}
+}
+
+@media only screen and (max-width: 360px){
+	ul{width: 300px;}
+	.port-1 .text-desc, 
+	.port-1.effect-3:hover .text-desc, 
+	.port-3.effect-1 .text-desc, 
+	.port-3.effect-3 .text-desc,
+	.port-4.effect-1 .text-desc,
+	.port-4.effect-2 .text-desc,
+	.port-4.effect-3 .text-desc, .port-8 .text-desc{padding: 20px;}
+	.text-desc{padding: 7px;}
+	.port-5.effect-1 .text-desc{padding: 13px 20px 20px 90px;}
+	.port-5.effect-2 .text-desc{padding: 10px;}
+	.port-5.effect-3 .text-desc{padding: 16px 90px 20px 20px;}
+	.port-6.effect-1 .text-desc .btn, 
+	.port-6.effect-2 .text-desc .btn,
+	.port-6.effect-3 .text-desc .btn,
+	.port-7.effect-1 .text-desc .btn,
+	.port-7.effect-2 .text-desc .btn,
+	.port-7.effect-3 .text-desc .btn,
+	.port-8.effect-3 .text-desc .btn{display: none;}
+	.port-6.effect-2 .text-desc{padding: 20px 120px 20px 20px;}
+	.port-6.effect-3 .text-desc{padding: 75px 20px 10px;}
+	.port-7.effect-1 .text-desc{padding: 12px 10px;}
+	.port-8.effect-3 .text-desc{padding: 28px 70px 20px;}
+}
+/*= Media Screen CSS End
+======================== */
+
+.pricingTable{
+    padding: 100px 0 20px;
+    border: 1px solid #ddd;
+    text-align: center;
+    position: relative;
+    transition: all 0.5s ease 0s;
+}
+.pricingTable .title{
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
+    background: #f7f2f0;
+    border: 1px solid #ddd;
+    font-size: 22px;
+    font-weight: 800;
+    color: #25283d;
+    text-transform: uppercase;
+    position: absolute;
+    top: 30px;
+    left: -15px;
+    transition: all 0.5s ease 0s;
+}
+.pricingTable:hover,
+.pricingTable:hover .title{ border: 1px solid #25283d; }
+.pricingTable .title:after{
+    content: "";
+    border-top: 15px solid #d2d2d2;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    position: absolute;
+    bottom: -30px;
+    left: -1px;
+    transition: all 0.5s ease 0s;
+}
+.pricingTable:hover .title:after{ border-top: 15px solid #000; }
+.pricingTable .price-value{
+    font-size: 50px;
+    color: #25283d;
+    margin-bottom: 40px;
+}
+.pricingTable .month{
+    display: block;
+    font-size: 14px;
+    color: #bb69a2;
+    line-height: 0;
+    text-transform: uppercase;
+}
+.pricingTable .pricing-content{
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+.pricingTable .pricing-content li{
+    font-size: 17px;
+    color: #848484;
+    line-height: 45px;
+    border-bottom: 1px solid #ddd;
+}
+.pricingTable .pricing-content li:nth-child(odd){ background: #f7f2f0; }
+.pricingTable .pricing-content li:first-child{ border-top: 1px solid #ddd; }
+.pricingTable .pricingTable-signup{
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    color: #25283d;
+    text-transform: uppercase;
+    position: relative;
+    transition: all 0.3s ease 0s;
+}
+.pricingTable .pricingTable-signup:hover{ color: #bb69a2; }
+.pricingTable .pricingTable-signup span{
+    display: block;
+    padding: 7px 30px;
+}
+.pricingTable .pricingTable-signup:before,
+.pricingTable .pricingTable-signup:after,
+.pricingTable .pricingTable-signup span:before,
+.pricingTable .pricingTable-signup span:after{
+    content: "";
+    background: #bb69a2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.15s ease-in-out 0s;
+}
+.pricingTable .pricingTable-signup:before,
+.pricingTable .pricingTable-signup:after{
+    width: 2px;
+    height: 0;
+}
+.pricingTable .pricingTable-signup span:before,
+.pricingTable .pricingTable-signup span:after{
+    width: 0;
+    height: 2px;
+    transition-delay: 0.15s;
+}
+.pricingTable .pricingTable-signup:after{
+    top: auto;
+    left: auto;
+    right: 0;
+    bottom: 0;
+}
+.pricingTable .pricingTable-signup span:before{
+    right: 0;
+    left: auto;
+}
+.pricingTable .pricingTable-signup span:after{
+    top: auto;
+    bottom: 0;
+}
+.pricingTable .pricingTable-signup:hover:before,
+.pricingTable .pricingTable-signup:hover:after{
+    height: 100%;
+    transition-delay: 0.15s;
+}
+.pricingTable .pricingTable-signup:hover span:before,
+.pricingTable .pricingTable-signup:hover span:after{
+    width: 100%;
+    transition-delay: 0s;
+}
+@media only screen and (max-width: 990px){
+    .pricingTable{ margin-bottom: 30px; }
+}              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
