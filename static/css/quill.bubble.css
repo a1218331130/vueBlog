@@ -635,8 +635,10 @@
 }
 .ql-bubble .ql-editor pre.ql-syntax {
   background-color: #23241f;
-  color: #f8f8f2;
+  color: #a6e22e;
   overflow: visible;
+  font-family: Consolas,"Courier New",Courier,FreeMono,monospace;
+  font-weight: normal;
 }
 .ql-bubble .ql-editor img {
   max-width: 100%;

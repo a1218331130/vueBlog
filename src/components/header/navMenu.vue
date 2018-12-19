@@ -51,7 +51,10 @@ export default {
     selectMenu(index, indexPath) {
        if(index.indexOf('10') > -1) {
           let routeData = this.$router.resolve({
-            name: "issue"
+            path: "/course",
+            query: {
+               titleName: index
+            }
           });
           window.open(routeData.href, '_blank');
           return;

@@ -1,6 +1,7 @@
 var express = require('express');
 var Router = express.Router();
 var menuModel = require('../models/menuType');
+var courseModel = require('../models/courseList');
 var contentListModel = require('../models/menuContentList').contentLi;
 // var resDoc = require('../commonJs/res').resDoc;
 var commitModel = require('../models/menuContentList').commitModel;
@@ -192,12 +193,53 @@ Router.post('/getMenuChild', function(req, res, next){
         }
     });
 });
-
+// 获取技术知识
+Router.post('/getCourse',function(req,res,next){
+    let params = {
+        courseType: req.body.types
+    }
+    courseModel.find(params,function(err,doc){
+        if(err) {
+            res.json({
+                states: 0,
+                msg: '获取失败'
+            });
+         }else {
+             res.json({
+                 states: 1,
+                 msg: doc
+             });
+         }
+    });
+});
+// 添加技术知识
+Router.post('/addCourse',function(req,res,next){
+    let newDate = new Date();
+    let coursesModel = new courseModel({
+        courseType: req.body.codeChild,
+        courseName: req.body.name,
+        courseHtml: req.body.content,
+        courseAutor: req.cookies.username,
+        courseHL: req.body.desc1,
+        courseTime: newDate.toLocaleDateString()
+    });
+    coursesModel.save(function(err,doc){
+        console.log(doc,'wewewewewewee');
+        if(err) {
+           res.json({
+               states: 0,
+               msg: '保存失败'
+           });
+        }else {
+            res.json({
+                states: 1,
+                msg: '保存成功'
+            });
+        }
+    });
+});
 // 添加内容
 Router.post('/addContent', function(req, res, next){
-    let params = {
-        menuName: req.body.region
-    };
     let newDate = new Date();
     let contentModel = new contentListModel({
         menuName: req.body.region,
@@ -266,7 +308,7 @@ Router.post('/addContent', function(req, res, next){
 //             }
 //      });
 });
-
+// 获取
 // 获取列表数据
 Router.post('/getList', function(req, res, next){
     let params = {

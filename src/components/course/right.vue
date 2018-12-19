@@ -1,12 +1,14 @@
 <template>
     <div>
-        <div class="courseRight">
-           <!-- <nav-header></nav-header>
-           <nav-menu></nav-menu> -->
+        <div class="courseRight ql-bubble">
+           <div v-html="datas" class="ql-editor"></div>
         </div>
     </div>   
 </template>  
 <style>
+@import '../../../static/css/quill.core.css';
+@import '../../../static/css/quill.snow.css';
+@import '../../../static/css/quill.bubble.css';
 </style>
 <script>
     export default{
@@ -14,11 +16,24 @@
         },
         data(){
             return{
-
+               datas: ''
             }
         },
+        props:{
+           htmlData: {
+               type: String,
+               default:''
+           }
+        },
+        watch: {
+           htmlData(val) {
+               if(val) {
+                 this.datas = val;
+               }
+           }
+        },
         mounted(){
-
+           this.datas = this.htmlData;
         },
         computed: {
 
