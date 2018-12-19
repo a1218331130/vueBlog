@@ -13,6 +13,7 @@
       width: 200px;
       float: left;
       background: red;
+      height: auto;
   }
   .courseRight{
       float: right;
