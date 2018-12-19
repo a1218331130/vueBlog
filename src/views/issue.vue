@@ -46,7 +46,7 @@
               </el-col>
               <el-col :span="8" v-if="ifChild">
                   <el-form-item label="文章子类型" prop="regionChild">
-                    <el-select v-model="ruleForm.regionChild" placeholder="请选择文章子类型">
+                    <el-select v-model="ruleForm.codeChild" placeholder="请选择文章子类型">
                       <el-option :label="item.menuName" :value="item.menuName" v-for="(item,index) in typeListChild" v-bind:key="index"></el-option>
                     </el-select>
                    </el-form-item>
@@ -141,6 +141,7 @@ export default {
           content:  '',
           regionChild: '',
           imgUrl: '',
+          codeChild: '',
           detailId: '' ,
           time: '' 
        },
@@ -212,6 +213,9 @@ export default {
         this.ruleForm.autor = this.$route.query.myname;
         this.ruleForm.detailId = this.timeId;
         this.ruleForm.time = this.timeId;
+        if(this.ruleForm.codeChild !== '') {
+          this.ruleForm.region = this.ruleForm.codeChild;
+        }
         // alert(this.ruleForm.detailId);
         this.$refs[formName].validate((valid) => {
           if (valid) {

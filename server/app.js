@@ -18,18 +18,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-
+// 路由拦截
+app.use(function(req, res, next) {
+  var url=req.originalUrl;
+  var cooiesName = req.cookies.username;
+  console.log(cooiesName, 'cooiesNamecooiesNamecooiesNamecooiesName');
+  console.log(url, 'urlurlurlurl');
+  next();
+});
 app.use('/test', testRouter);
 app.use('/music', musicRouter);
 app.use('/blogUsers', userRouter);
 app.use('/menu', menuRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

@@ -31,10 +31,10 @@
                     <i class="iconfont icon-kanguo"></i>
                     <span style="font-size:15px">{{item.zan}}</span>
                 </span>
-                <span class="comment" v-if="item.pinglun !== '0'">
-                      <i class="iconfont icon-pinglun"></i>
+                <!-- <span class="comment" v-if="item.pinglun !== '0'">
+                      <i class="iconfont icon-zanfill"></i>
                       <span style="font-size:15px">{{item.pinglun}}</span>
-                </span> 
+                </span>  -->
             </span>
                 <div class="clear"></div>
             </div> 
@@ -201,7 +201,7 @@ export default {
        activeIndex: '1',
        loading: true,
        contentLists: [],
-       pageSize: 5,
+       pageSize: 10,
        pageIndex: 1,
        totalList: 0
     }

@@ -5,6 +5,7 @@ import issueComponent from '@/views/issue'
 import detailComponent from '@/views/detail'
 import autorComponent from '@/views/autor'
 import musicComponent from '../components/music/music'
+import courseComponent from '../components/course/course'
 Vue.use(Router)
 
 export default new Router({
@@ -34,6 +35,11 @@ export default new Router({
       path: '/music',
       name: 'music',
       component: musicComponent
+    },
+    {
+      path: '/course',
+      name: 'course',
+      component: courseComponent
     }
   ]
 })

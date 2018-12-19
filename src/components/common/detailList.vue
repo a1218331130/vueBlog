@@ -13,9 +13,9 @@
                 <span class="comment" style="font-size:14px">
                     <i class="iconfont icon-listview"></i> {{dataObj.menuName}}
                 </span>
-                <span class="comment" style="font-size:14px">
-                    <i class="iconfont icon-pinglun"></i> 发表评论
-                </span>
+                <!-- <span class="comment" style="font-size:14px">
+                    <i class="iconfont icon-xiangqu1"></i> 发表评论
+                </span> -->
                 <span class="views">
                     <i class="be be-eye"></i> 56
                 </span>
@@ -58,7 +58,7 @@
     </div>
     <div class="lists">
         <ol class="comment-list">
-            <li class="comment" v-for="(item,index) in commitList" :key="index">
+            <li class="comment" v-for="(item,index) in dataObj.commitList" :key="index">
                 <div id="div-comment-31127" class="comment-body">
                     <div class="comment-author vcard"> 
                         <img class="avatar" v-if="item.userImage !== ''" :src="item.userImage" alt="avatar" style="display: block;"> 
@@ -353,7 +353,7 @@ export default {
                     type: 'success'
                 });
                 this.childIndex = '';
-                this.getCommits();
+                this.getDetail();
             }
         });
     },
@@ -375,23 +375,23 @@ export default {
                     message: '提交评论成功',
                     type: 'success'
                 });
-                this.getCommits();
+                this.getDetail();
             }
         });
     },
     // 获取评论
-    getCommits() {
-       let addCommit2 = {
-          type: 'post',
-          path: '/menu/getCommit',
-          datas: {
-              commitId: this.$route.query.id
-          }
-        }
-        this.$store.dispatch(addCommit2).then(res=>{
-            this.commitList = res.data.msg;
-        });
-    },
+    // getCommits() {
+    //    let addCommit2 = {
+    //       type: 'post',
+    //       path: '/menu/getCommit',
+    //       datas: {
+    //           commitId: this.$route.query.id
+    //       }
+    //     }
+    //     this.$store.dispatch(addCommit2).then(res=>{
+    //         this.commitList = res.data.msg;
+    //     });
+    // },
     // 获取用户名
     getUserName(dataOne) {
       if(dataOne.useName !== undefined) {
@@ -418,7 +418,7 @@ export default {
   },
   mounted () {
      this.getDetail();
-     this.getCommits();
+    //  this.getCommits();
      setInterval(() => {
         this.timeCommit = new Date().getTime().toString();
         // console.log(this.timeId);

@@ -11,16 +11,27 @@ var contentObj = new Schema({
     time: String,
     zan: Number,
     pinglun: Number,
-    detailId: String
+    detailId: String,
+    commitList:[{type: Schema.Types.ObjectId, ref: 'commit'}]
 });
-// {
-//         title: String,
-//         time: String,
-//         views: Number,
-//         answer: Number,
-//         like: Number,
-//         content: String,
-//         images: String,
-//         type: String
-//     }
-module.exports = mongoose.model('contentList',contentObj);
+var commitsObj = new Schema({
+    commitId: String,
+    timeCommit:String,
+    useName: String,
+    commitYime: String,
+    userImage: String,
+    commitConent: String,
+    answerList:[{type: Schema.Types.ObjectId, ref: 'commitwo'}],
+});
+var commitsChildObj = new Schema({
+    useName:String,
+    commitYimeChild: String,
+    useImage: String,
+    commitConentChild: String,
+    parentName: String,
+});
+var commitModel = mongoose.model('commit',commitsObj);
+var commitChildModel = mongoose.model('commitwo',commitsChildObj);
+exports.commitChildModel = commitChildModel;
+exports.commitModel = commitModel;
+exports.contentLi = mongoose.model('contentList',contentObj);

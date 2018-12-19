@@ -1,10 +1,10 @@
 var express = require('express');
 var Router = express.Router();
 var menuModel = require('../models/menuType');
-var contentListModel = require('../models/menuContentList');
+var contentListModel = require('../models/menuContentList').contentLi;
 // var resDoc = require('../commonJs/res').resDoc;
-var commitModel = require('../models/commit').commitModel;
-var commitChildModel = require('../models/commit').commitChildModel;
+var commitModel = require('../models/menuContentList').commitModel;
+var commitChildModel = require('../models/menuContentList').commitChildModel;
 // var userModel = require('../models/blogUse');
 //添加评论
 // function resDoc(err,doc,res){
@@ -22,6 +22,9 @@ var commitChildModel = require('../models/commit').commitChildModel;
 // }
 Router.post('/addCommit',function(req,res,next){
     let newDate = new Date();
+    let detailId1 = {
+        detailId: req.body.commitId
+    }
     let commit = new commitModel({
         commitId:req.body.commitId,
         timeCommit:req.body.timeCommit,
@@ -38,10 +41,26 @@ Router.post('/addCommit',function(req,res,next){
                 msg: err.message
             });
         }else {
-            res.json({
-                states: 1,
-                msg: '保存成功'
-            });
+            contentListModel.update(detailId1,{
+                '$push':{
+                    commitList: {
+                        $each: [doc._id]
+                    }
+                }
+            },function(err,doc){
+                if(err) {
+                    res.json({
+                        states: 0,
+                        msg: err.message
+                    });
+                }else {
+                    res.json({
+                        states: 1,
+                        msg: '添加评论成功'
+                    });
+                }
+            }
+          );
         }
     });
 });
@@ -90,26 +109,26 @@ Router.post('/addCommitChild',function(req,res,next){
     });
 });
 // 获取评论
-Router.post('/getCommit',function(req,res,next){
-    let params = {
-        commitId: req.body.commitId
-    }
-    commitModel.find(params)
-    .populate('answerList')
-    .exec(function(err,doc1){
-        if(err) {
-            res.json({
-                states: 0,
-                msg: '获取评论失败'
-            });
-         }else {
-             res.json({
-                 states: 1,
-                 msg: doc1
-             });
-         }
-    });
-});
+// Router.post('/getCommit',function(req,res,next){
+//     let params = {
+//         commitId: req.body.commitId
+//     }
+//     commitModel.find(params)
+//     .populate('answerList')
+//     .exec(function(err,doc1){
+//         if(err) {
+//             res.json({
+//                 states: 0,
+//                 msg: '获取评论失败'
+//             });
+//          }else {
+//              res.json({
+//                  states: 1,
+//                  msg: doc1
+//              });
+//          }
+//     });
+// });
 // 获取最新评论
 Router.post('/getNewCommit',function(req,res,next){
     let params = {}
@@ -192,6 +211,7 @@ Router.post('/addContent', function(req, res, next){
         zan: 0,
         pinglun: 0,
         detailId: req.body.detailId,
+        commitList: []
     });
     contentModel.save(function(err,doc){
         console.log(doc,'wewewewewewee');
@@ -263,7 +283,11 @@ Router.post('/getList', function(req, res, next){
     let pageSize = req.body.pageSize;
     let pageIndex = req.body.pageIndex;
     let skip = (pageIndex-1)*pageSize;
-    contentListModel.find(params).skip(skip).limit(pageSize).sort({detailId:-1}).exec(function(err,doc){
+    // 这里的populate写法表示可以关联三层
+    contentListModel.find(params).skip(skip).limit(pageSize).sort({detailId:-1}).populate({
+        path: 'commitList',
+        populate: {path: 'answerList'}
+    }).exec(function(err,doc){
         if(err) {
             res.json({
                 states: 0,
@@ -349,17 +373,23 @@ Router.post('/getDetail', function(req, res, next){
     //     menuName: '我的首页'
     // };
     // console.log(params);
-    contentListModel.findOne(params, function(err, doc){
+    contentListModel.findOne(params).populate({
+        path: 'commitList',
+        populate: {path: 'answerList'}
+    }).exec(function(err, doc){
         if(err) {
            res.json({
                states: 0,
                msg: '获取列表数据失败'
            });
         }else {
-            res.json({
-                states: 1,
-                msg: doc
-            });
+            // 点赞个数的自增
+            contentListModel.update(params, {$inc:{zan:1} }, function(err,doc1){
+                res.json({
+                    states: 1,
+                    msg: doc
+                });
+            });       
             // var arrays = [];
             // var arrays1 = {};
             // var zanNun = 0;
