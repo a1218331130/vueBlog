@@ -129,7 +129,7 @@ a:visited {
 <script>
 import axios from 'axios'
 import loginDialog from './loginDialog'
-import {mapState} from "vuex";//通过ES6的对象解构赋值
+import {mapState, mapGetters} from "vuex";//通过ES6的对象解构赋值
 export default {
   components: {
     loginDialog
@@ -145,7 +145,7 @@ export default {
     }
   },
   computed: {
-     ...mapState(['useName'])
+     ...mapGetters(['useName'])
   },
   methods: {
     toIssue() {

@@ -188,13 +188,13 @@ header {
 }
 </style>
 <script>
-import {mapState} from "vuex";//通过ES6的对象解构赋值
+import {mapState, mapGetters} from "vuex";//通过ES6的对象解构赋值
 export default {
   components: {
     
   },
   computed: {
-     ...mapState(['menuIndex'])
+     ...mapGetters(['menuIndex'])
   },
   data () {
     return {

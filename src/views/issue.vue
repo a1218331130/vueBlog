@@ -120,7 +120,7 @@
   import {quillRedefine} from 'vue-quill-editor-upload'
   import {quillEditor} from 'vue-quill-editor'
   import personSetting from '../components/issue/setting.vue'
-  import {mapState} from "vuex";//通过ES6的对象解构赋值
+  import {mapState, mapGetters} from "vuex";//通过ES6的对象解构赋值
 export default {
   components: {
     quillRedefine,
@@ -192,7 +192,7 @@ export default {
     }
   },
   computed: {
-     ...mapState(['useImage'])
+     ...mapGetters(['useImage'])
   },
   methods: {
     getSetInfo() {

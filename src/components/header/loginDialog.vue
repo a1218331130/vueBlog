@@ -44,7 +44,7 @@
 </style>
 <script>
     import axios from 'axios'
-    import {mapState} from "vuex";//通过ES6的对象解构赋值
+    import {mapState, mapGetters} from "vuex";//通过ES6的对象解构赋值
     export default{
         components: {
         //   navHeader
@@ -62,7 +62,7 @@
 
         },
         computed: {
-          ...mapState(['count'])
+          ...mapGetters(['count'])
         },
         methods: {
           closeLogin() {

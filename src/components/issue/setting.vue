@@ -70,7 +70,7 @@
   }
 </style>
 <script>
-import {mapState} from "vuex";//通过ES6的对象解构赋值
+import {mapState, mapGetters} from "vuex";//通过ES6的对象解构赋值
 export default {
   components: {
     
@@ -90,7 +90,7 @@ export default {
     }
   },
   computed: {
-     ...mapState(['menuIndex'])
+     ...mapGetters(['menuIndex'])
   },
   methods: {
      userImageChange(response, file, fileList) {

@@ -27,7 +27,8 @@
 }
 </style>
 <script>
-import {mapState} from "vuex";//通过ES6的对象解构赋值
+import {mapState, mapGetters} from "vuex";//通过ES6的对象解构赋值
+// import {GET_MENU} from "../../store/types";
 export default {
   components: {
     
@@ -39,7 +40,7 @@ export default {
     }
   },
   computed: {
-     ...mapState(['menuIndex'])
+     ...mapGetters(['menuIndex'])
   },
   methods: {
     aboutAutor() {
@@ -63,20 +64,19 @@ export default {
        this.$router.push({path:'/blog'});
 	},
 	getMenus() {
-       let getMenu = {
-          type: 'post',
-          path: '/menu/getMenu',
-          datas: {}
-      }
-      this.$store.dispatch(getMenu).then(res=>{
-		// console.log(res.data.msg);
-		this.menuList = res.data.msg;
-        //  this.$message({
-        //     message: '退出成功',
-        //     type: 'success'
-		//   });
-		
+      this.$store.dispatch('GET_MENU', {asd:10}).then((res)=>{
+         console.log(res, 'resresresres');
+         this.menuList = res.data.msg;	
+         // console.log(this.menuList, 'this.menuListthis.menuListthis.menuList');
       });
+      // let getMenu = {
+      //     type: 'post',
+      //     path: '/menu/getMenu',
+      //     datas: {}
+      // }
+      // this.$store.dispatch(getMenu).then(res=>{
+		// this.menuList = res.data.msg;	
+      // });
 	}
   },
   mounted () {

@@ -292,14 +292,14 @@ a:visited {
 }
 </style>
 <script>
-import {mapState} from "vuex";//通过ES6的对象解构赋值
+import {mapState, mapGetters} from "vuex";//通过ES6的对象解构赋值
 import loginDialog from '../header/loginDialog'
 export default {
   components: {
     loginDialog
   },
   computed: {
-     ...mapState(['useName'])
+     ...mapGetters(['useName'])
   },
   data () {
     return {
