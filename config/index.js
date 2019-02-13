@@ -22,6 +22,9 @@ module.exports = {
       '/music/*':{
         target: 'http://localhost:3000'
       },
+      '/chat/*':{
+        target: 'http://localhost:3000'
+      },
       '/myJsonp':{
         target: 'https://c.y.qq.com/soso/fcgi-bin/client_search_cp'
       }

@@ -7,7 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('server:server');
 var http = require('http');
-
+var io=require('socket.io')
 /**
  * Get port from environment and store in Express.
  */
@@ -28,11 +28,29 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
+var io = require('socket.io').listen(server.listen(port));
+io.sockets.on('connection', (socket) => {
+    console.log('链接成功了呀'); 
+    //监听新用户加入
+	 socket.on('login', function(obj){
+		//向所有客户端广播用户加入
+		io.emit('login', obj);
+		// console.log(obj.username+'加入了聊天室');
+  });
+  socket.on('out', function(obj){
+		//向所有客户端广播用户加入
+		io.emit('out', obj);
+		// console.log(obj.username+'加入了聊天室');
+  });
+  socket.on('content', function(obj){
+		//向所有客户端广播用户加入
+		io.emit('content', obj);
+		// console.log(obj.username+'加入了聊天室');
+	});
+});
 /**
  * Normalize a port into a number, string, or false.
  */
-
 function normalizePort(val) {
   var port = parseInt(val, 10);
 

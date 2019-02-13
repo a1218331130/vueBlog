@@ -1,8 +1,7 @@
 <template>
     <div>
         <div class="headerList">
-           <nav-header></nav-header>
-           <nav-menu></nav-menu>
+           <nav-new-menu></nav-new-menu>
         </div>
         <el-container class="left">
             <el-main>
@@ -32,6 +31,7 @@ body{
 }
 </style>
 <script>
+    import navNewMenu from '@/components/header/navNewMenu'
     import navHeader from '@/components/header/navHeader'
     import navMenu from '@/components/header/navMenu'
     import detailBlog from '@/components/detail/detail'
@@ -43,7 +43,8 @@ body{
           navMenu,
           detailBlog,
           rightTitle,
-          footerBottom
+          footerBottom,
+          navNewMenu
         },
         data(){
             return{

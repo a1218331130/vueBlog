@@ -1,20 +1,16 @@
 <template>
 <div class="menu">
-	<div class="sina-nav-header">
+	<!-- <div class="sina-nav-header">
 		<el-menu :default-active="menuIndex" class="el-menu-demo" mode="horizontal" @select="selectMenu">
 			<el-menu-item v-if="item.type==='2'" :index="item.menuName" v-for="(item,index) in menuList" v-bind:key="index">{{item.menuName}}</el-menu-item>
 			<el-submenu :index="item.indexNumber" v-if="item.type==='1'" v-for="(item,index) in menuList" v-bind:key="index">
 				<template slot="title">{{item.menuName}}</template>
 				<el-menu-item :index="item1.childIndex" v-for="(item1,index1) in item.children" v-bind:key="index1">{{item1.menuName}}</el-menu-item>
-				<!-- <el-menu-item :index="2-2">vue</el-menu-item>
-				<el-menu-item index="2-3">node</el-menu-item>
-				<el-menu-item index="2-4">mongoose</el-menu-item>
-				<el-menu-item index="2-5">expresss</el-menu-item> -->
 			</el-submenu>
          <li class="el-menu-item" @click="aboutAutor">关于作者</li>
          <li class="el-menu-item" @click="aboutAutor">版本信息</li>
 		</el-menu>
-	</div>
+	</div> -->
 </div>
 </template>
 <style>
@@ -67,16 +63,7 @@ export default {
       this.$store.dispatch('GET_MENU', {asd:10}).then((res)=>{
          console.log(res, 'resresresres');
          this.menuList = res.data.msg;	
-         // console.log(this.menuList, 'this.menuListthis.menuListthis.menuList');
       });
-      // let getMenu = {
-      //     type: 'post',
-      //     path: '/menu/getMenu',
-      //     datas: {}
-      // }
-      // this.$store.dispatch(getMenu).then(res=>{
-		// this.menuList = res.data.msg;	
-      // });
 	}
   },
   mounted () {

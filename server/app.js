@@ -7,6 +7,7 @@ var testRouter = require('./routes/test');
 var userRouter = require('./routes/blogUse');
 var menuRouter = require('./routes/menu');
 var musicRouter = require('./routes/music');
+var chatRouter = require('./routes/chat');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use('/test', testRouter);
 app.use('/music', musicRouter);
 app.use('/blogUsers', userRouter);
 app.use('/menu', menuRouter);
+app.use('/chat', chatRouter);
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

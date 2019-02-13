@@ -7,13 +7,16 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css'
 import '../static/icon/iconfont.css'
 import store from './store/store'
+import VueJsonp from 'vue-jsonp'
+import VueLazyLoad from 'vue-lazyload'
+import VueSocketio from 'vue-socket.io';
+// import socketio from 'socket.io-client';
 import VueQuillEditor from 'vue-quill-editor'
 // require styles
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
-import VueJsonp from 'vue-jsonp'
-import VueLazyLoad from 'vue-lazyload'
+Vue.use(VueSocketio,'http://localhost:3000/');
 Vue.use(VueLazyLoad,{
     error:'../static/loading.gif',
     loading:'../static/loading.gif'

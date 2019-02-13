@@ -36,6 +36,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'FragmentBanner$': '../static/js/banner.js'
     }
   },
   module: {
@@ -95,5 +96,8 @@ module.exports = {
         jQuery: "jquery",
         $: "jquery"
     })
-  ]
+  ],
+  externals: {
+    'FragmentBanner': 'FragmentBanner'
+  }
 }

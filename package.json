@@ -21,6 +21,7 @@
     "jquery": "^3.3.1",
     "quill-image-drop-module": "^1.0.3",
     "quill-image-resize-module": "^3.0.0",
+    "socket.io-client": "^2.2.0",
     "vue": "^2.5.2",
     "vue-jsonp": "^0.1.8",
     "vue-lazyload": "^1.2.6",
@@ -28,6 +29,7 @@
     "vue-quill-editor-upload": "^1.1.0",
     "vue-router": "^3.0.1",
     "vue-slider-component": "^2.8.2",
+    "vue-socket.io": "^2.1.1-a",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

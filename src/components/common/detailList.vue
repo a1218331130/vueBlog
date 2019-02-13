@@ -50,7 +50,7 @@
                 </el-row>
             </div>
             <p class="comment-nologin" v-if="useName === ''"> 您必须
-                <a href="#login" id="login-c">
+                <a href="javascript:void(0)" id="login-c">
                     <span class="login-respond" @click="openDialog">登录</span>
                 </a>才能发表评论！
             </p>

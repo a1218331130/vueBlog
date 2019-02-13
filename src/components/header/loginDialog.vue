@@ -26,11 +26,6 @@
                 >
                 <el-input v-model="dynamicValidateForm.passWord"></el-input>
                 </el-form-item>
-                <!-- <el-form-item>
-                    <el-button type="primary" @click="submitForm('dynamicValidateForm')">提交</el-button>
-                    <el-button @click="addDomain">新增域名</el-button>
-                    <el-button @click="resetForm('dynamicValidateForm')">重置</el-button>
-                </el-form-item> -->
                 </el-form>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="closeLogin">取 消</el-button>
