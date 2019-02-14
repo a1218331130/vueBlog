@@ -2,6 +2,7 @@ var express = require('express');
 var Router = express.Router();
 var chatModel = require('../models/chat');
 var chatConModel = require('../models/chatcontent');
+// 保存登陆用户
 Router.post('/pepole',function(req,res,next){
       let newDate = new Date();
       let pepoleList = new chatModel({
@@ -46,6 +47,7 @@ Router.post('/pepole',function(req,res,next){
     //                 }
     //          });
 });
+// 保存用户发布内容
 Router.post('/content',function(req,res,next){
     let newDate = new Date();
     let conList = new chatConModel({
@@ -67,6 +69,7 @@ Router.post('/content',function(req,res,next){
       }
     });  
 });
+//获取内容并返回
 Router.post('/geContentList',function(req,res,next){
     chatConModel.find({}, function(err,doc){
       if(err) {
@@ -83,6 +86,7 @@ Router.post('/geContentList',function(req,res,next){
       }
     });  
 });
+//获取用户列表
 Router.post('/getUserList',function(req,res,next){
     chatModel.find({}, function(err,doc){
       if(err) {
@@ -99,6 +103,7 @@ Router.post('/getUserList',function(req,res,next){
       }
     });  
 });
+//退出登陆
 Router.post('/out',function(req,res,next){
     let conditions = {
         groupPepole: req.body.loginName

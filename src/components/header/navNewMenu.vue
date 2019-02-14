@@ -153,7 +153,7 @@ export default {
   data () {
     return {
       musicUrl: '',
-      menuList: [],
+      menuList: []
     }
   },
   computed: {

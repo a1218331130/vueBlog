@@ -231,6 +231,7 @@
         methods: {
             chatLogin() {
                let newDate = new Date();
+               // 像后端发数据
                this.$socket.emit('login', {groupPepole:this.inputUser, type: 'in'});
                this.loginIn('in');
                this.getUser();
@@ -245,6 +246,7 @@
               this.itemName = name;
             },
             loginIn() {
+                //发送请求，这里我封装了axios,报错的话可以用原生的axios请求
                 let paramRegist = {
                     type: 'post',
                     path: '/chat/pepole',
