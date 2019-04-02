@@ -4,6 +4,10 @@
 	      <div class="left">
 	        <button title="Menu" @click="openLeft"  :class="ifOpen ? 'active' : ''"><i class="fa fa-bars fa-2x"></i></button>
 	        <h1>发布页面</h1>
+          <!-- <code class="hljs" v-html="contentCode"></code> -->
+          <div class="quill-code">
+            <code class="hljs ql-editor" v-html="ruleForm.content"></code>
+          </div>
 	      </div>
 	      <div class="utils right">
 	        <!-- <a href="javascript:void(0)" class='alerts'><i class="fa fa-bell-o fa-lg"></i></a> -->
@@ -101,6 +105,7 @@
 </template>
 <style>
 @import '../../static/css/styles.css';
+@import 'highlight.js/styles/xcode.css';
 .ql-editor{
   height: 300px
 }
@@ -119,8 +124,13 @@
 <script>
   import {quillRedefine} from 'vue-quill-editor-upload'
   import {quillEditor} from 'vue-quill-editor'
+  import hljs from 'highlight.js'
   import personSetting from '../components/issue/setting.vue'
-  import {mapState, mapGetters} from "vuex";//通过ES6的对象解构赋值
+  import {mapState, mapGetters} from "vuex" //通过ES6的对象解构赋值
+  // import { ImageDrop } from 'quill-image-drop-module'
+  // import ImageResize from 'quill-image-resize-module'
+  // Quill.register('modules/imageDrop', ImageDrop)
+  // Quill.register('modules/imageResize', ImageResize)
 export default {
   components: {
     quillRedefine,
@@ -165,34 +175,37 @@ export default {
        typeList: [],
        ifChild: false,
        typeListChild: [],
-       apiurl: '/blogUsers/image',
-       editorOption: {
-          modules: {
-            toolbar: [
-              ['bold', 'italic', 'underline', 'strike'],
-              ['blockquote', 'code-block'],
-              [{ 'header': 1 }, { 'header': 2 }],
-              [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-              [{ 'script': 'sub' }, { 'script': 'super' }],
-              [{ 'indent': '-1' }, { 'indent': '+1' }],
-              [{ 'direction': 'rtl' }],
-              [{ 'size': ['small', false, 'large', 'huge'] }],
-              [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-              [{ 'font': [] }],
-              [{ 'color': [] }, { 'background': [] }],
-              [{ 'align': [] }],
-              ['clean'],
-              ['link', 'image', 'video']
-            ],
-            syntax: {
-              highlight: text => hljs.highlightAuto(text).value
-            }
-          }
-       }
+       apiurl: '/blogUsers/image'
+      //  editorOption: {
+      //     modules: {
+      //       toolbar: [
+      //         ['bold', 'italic', 'underline', 'strike'],
+      //         ['blockquote', 'code-block'],
+      //         [{ 'header': 1 }, { 'header': 2 }],
+      //         [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+      //         [{ 'script': 'sub' }, { 'script': 'super' }],
+      //         [{ 'indent': '-1' }, { 'indent': '+1' }],
+      //         [{ 'direction': 'rtl' }],
+      //         [{ 'size': ['small', false, 'large', 'huge'] }],
+      //         [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+      //         [{ 'font': [] }],
+      //         [{ 'color': [] }, { 'background': [] }],
+      //         [{ 'align': [] }],
+      //         ['clean'],
+      //         ['link', 'image', 'video']
+      //       ],
+      //       syntax: {
+      //         highlight: text => hljs.highlightAuto(text).value
+      //       }
+      //     }
+      //  }
     }
   },
   computed: {
-     ...mapGetters(['useImage'])
+     ...mapGetters(['useImage']),
+     contentCode() {
+        return hljs.highlightAuto(this.ruleForm.content).value
+     },
   },
   methods: {
     getSetInfo() {
@@ -315,9 +328,14 @@ export default {
                var w=respnse.msg.img.path.indexOf('upload');
                return 'http://localhost:3000/images/' + respnse.msg.img.path.substring(w);   // 这里切记要return回你的图片地址
             }
-          }
+          },
+          theme:'snow'
         }
-      )
+      ),
+      this.editorOption.modules.syntax = {
+          highlight: text => hljs.highlightAuto(text).value
+      }
+      console.log(this.editorOption, 'this.editorOption');
   }
 }
 </script>

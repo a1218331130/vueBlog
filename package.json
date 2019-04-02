@@ -17,7 +17,7 @@
     "axios": "^0.18.0",
     "element-ui": "^2.4.9",
     "express": "^4.16.4",
-    "highlight.js": "^9.13.1",
+    "highlight.js": "^9.14.2",
     "jquery": "^3.3.1",
     "quill-image-drop-module": "^1.0.3",
     "quill-image-resize-module": "^3.0.0",

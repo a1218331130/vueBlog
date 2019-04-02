@@ -18,6 +18,7 @@
             </ul>
         </div>
         <div class="mod-header__music-icon" @click="toLogin">hi,{{useName}}</div>
+        <!-- <div class="mod-header__music-icon" @click="toLogin" style="right:-80px">退出</div> -->
     </div>
     <div class="audioUrl" style="opacity: 0;position:absolute">
                 <audio

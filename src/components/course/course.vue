@@ -30,11 +30,17 @@
                 </div>
             </div>
             <div class="courseRight">
-            <course-right :htmlData="courseHtm"></course-right>
+               <course-right class="hljs"  :htmlData="courseHtm"></course-right>
             </div>
+            <!-- <div class="quill-code courseRight">
+               <code class="hljs ql-editor" v-html="courseHtm"></code>
+            </div> -->
         </div>
     </div>   
 </template>  
+<style>
+@import 'highlight.js/styles/xcode.css';
+</style>
 <style scoped>
 .course{
   /* padding:30px;
@@ -88,6 +94,7 @@
 </style>
 <script>
     import courseRight from './right'
+    import hljs from 'highlight.js'
     export default{
         components: {
           courseRight
@@ -143,7 +150,6 @@
           this.getLists();
         },
         computed: {
-
         },
         methods: {
         // 数据改变
