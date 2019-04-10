@@ -113,7 +113,7 @@ Router.post('/login',function(req,res,next){
                });
             //    let secretOrPrivateKey=Math.floor(Math.random()*1000+1)
                 let token = jwt.sign(params, '123456', {
-                        expiresIn: 60*60*1 
+                        expiresIn: 60*60*1*24 
                 });
                 console.log(token, 'tokentokentokentokentoken');
                 res.json({

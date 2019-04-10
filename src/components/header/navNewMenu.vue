@@ -219,11 +219,13 @@ export default {
     },
     selectMenu(name, num) {
        let pathes = '';
-       if(parseInt(num) > 6) {
+       if(parseInt(num) >= 6) {
           if(name === '我的音乐') {
               pathes = '/music'
           }else if(name === '关于作者') {
             pathes = '/autor'
+          }else if(name === '个人中心') {
+            pathes = '/issue'
           }
           let routeData = this.$router.resolve({
             path: pathes

@@ -111,8 +111,10 @@
 	</div>
 </template>
 <style>
-@import '../../static/css/styles.css';
 @import 'highlight.js/styles/xcode.css';
+</style>
+<style scoped>
+@import '../../static/css/styles.css';
 .ql-editor{
   height: 300px
 }
