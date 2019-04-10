@@ -23,26 +23,29 @@
   10.其他的就是一些css3，html5的页面优化
   
 
-## Build Setup
+## 运行项目
 
 ``` bash
-# install dependencies
-npm install
+# 安装，这里需要有node的环境,先安装淘宝镜像
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+cnpm install
 
-# serve with hot reload at localhost:8080
+# serve文件夹下也安装module
+cnpm install
+
+# 安装mongodb具体怎么安装配置可以百度下
+
+# 运行项目，在根目录下运行
 npm run dev
 
-# build for production with minification
+# 运行mongoose
+mongod -storageEngine mmapv1 --dbpath D:\MongoDB\data
+
+# 运行node服务，在server文件夹下运行
+npm start
+
+# 在根目录下运行
 npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run all tests
-npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
