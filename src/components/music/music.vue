@@ -159,14 +159,14 @@
   }
   .container .el-table__row:hover{
       cursor: pointer;
-  }
+  } 
 </style>
 <style scoped>
+@import '../../../static/css/hover-effects.css';
 /* .mycollectList{
     background: #4A424A;
     opacity: .9;
 } */
-@import '../../../static/css/hover-effects.css';
 .audioUrl{
     position: fixed;
     bottom:20px;
@@ -174,6 +174,12 @@
     background:white;
     z-index: 5;
 }
+.geBan li{
+    float: left;
+    width: 22%;
+    margin: 10px 1%;
+    list-style: none;
+  } 
 .bg_player {
     display: block;
 }

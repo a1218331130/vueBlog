@@ -4,10 +4,17 @@
 	      <div class="left">
 	        <button title="Menu" @click="openLeft"  :class="ifOpen ? 'active' : ''"><i class="fa fa-bars fa-2x"></i></button>
 	        <h1>发布页面</h1>
+          <!-- <div>{{ruleForm.content}}</div> -->
           <!-- <code class="hljs" v-html="contentCode"></code> -->
-          <div class="quill-code">
+          <!-- <div class="quill-code">
+            <code class="hljs" v-html="contentCode"></code>
+          </div> -->
+          <!-- <div class="quill-code">
             <code class="hljs ql-editor" v-html="ruleForm.content"></code>
-          </div>
+          </div> -->
+           <!-- <div class="courseRight ql-bubble">
+            <div v-html="contentCode" class="ql-editor"></div>
+          </div> -->
 	      </div>
 	      <div class="utils right">
 	        <!-- <a href="javascript:void(0)" class='alerts'><i class="fa fa-bell-o fa-lg"></i></a> -->
@@ -32,7 +39,7 @@
               </nav> 
 	        </aside>
 	        <!--//sidebar-->
-	    <section>
+	    <section style="margin-top:100px">
 				<article v-if="leftNum === 0">
           <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm" :inline="true">
             <el-row>
@@ -226,6 +233,7 @@ export default {
         this.ruleForm.autor = this.$route.query.myname;
         this.ruleForm.detailId = this.timeId;
         this.ruleForm.time = this.timeId;
+        // this.ruleForm.content = this.contentCode;
         var pathUrl = '/menu/addContent';
         if(this.ruleForm.codeChild !== '') {
           pathUrl = '/menu/addCourse';

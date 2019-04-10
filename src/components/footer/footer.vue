@@ -9,7 +9,7 @@
         </footer>
     </div>   
 </template>  
-<style>
+<style scoped>
 #colophon {
     background: #fff;
     position: relative;

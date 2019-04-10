@@ -10,7 +10,7 @@
   </div>
 </div>
 </template>
-<style>
+<style scoped>
 .sina-nav-header{
     width: 1120px;
     margin: 0 auto 0;

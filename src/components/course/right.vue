@@ -29,6 +29,7 @@
            htmlData(val) {
                if(val) {
                  this.datas = val;
+                 console.log(val);
                }
            }
         },

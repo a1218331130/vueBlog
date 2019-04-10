@@ -38,7 +38,7 @@
                     <a rel="nofollow" id="cancel-comment-reply-link" href="/hosts/google-sorry.html#respond">取消回复</a>
                 </small> -->
             </h3>
-            <div  v-if="useName !== ''">
+            <div>
                 <el-input
                     type="textarea"
                     :rows="2"
@@ -49,11 +49,11 @@
                     <el-button type="primary" size="small" @click="addCommits">提交按钮</el-button>
                 </el-row>
             </div>
-            <p class="comment-nologin" v-if="useName === ''"> 您必须
+            <!-- <p class="comment-nologin" v-if="useName === ''"> 您必须
                 <a href="javascript:void(0)" id="login-c">
                     <span class="login-respond" @click="openDialog">登录</span>
                 </a>才能发表评论！
-            </p>
+            </p> -->
         </div>
     </div>
     <div class="lists">
@@ -72,8 +72,8 @@
                             <br> 
                             <span class="comment-aux"> 
                                 <span class="reply">
-                                    <a rel="nofollow" class="comment-reply-login" @click="openDialog" v-if="useName === ''">登录以回复</a>
-                                    <a rel="nofollow" class="comment-reply-login" @click="awsterChild(index)" v-if="useName !== ''">点击回复</a>
+                                    <!-- <a rel="nofollow" class="comment-reply-login" @click="openDialog" v-if="useName === ''">登录以回复</a> -->
+                                    <a rel="nofollow" class="comment-reply-login" @click="awsterChild(index)">点击回复</a>
                                     </span> {{item.commitYime}}
                                     <!-- <span class="floor"> &nbsp;11楼 </span>  -->
                                 </span> 
@@ -124,6 +124,16 @@
 @import '../../../static/css/quill.core.css';
 @import '../../../static/css/quill.snow.css';
 @import '../../../static/css/quill.bubble.css';
+@import 'highlight.js/styles/xcode.css';
+.ql-snow .ql-editor pre.ql-syntax{
+    font-size: 14px;
+}
+.ql-snow .ql-editor blockquote{
+    font-size: 16px;
+}
+</style>
+
+<style scoped>
 .at{
     color: #3690cf;
 }

@@ -59,7 +59,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
 .commit h4 {
     float: left;
     color: #999;
@@ -73,7 +73,9 @@
     padding-left: 6px;
 }
 .new_cat{
-    background: white
+    background: white;
+    border: 1px solid #ddd;
+    border-top: 0px solid #ddd;
 }
 .new_cat ul li {
     width: 99%;

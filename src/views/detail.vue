@@ -1,8 +1,5 @@
 <template>
     <div>
-        <div class="headerList">
-           <nav-new-menu></nav-new-menu>
-        </div>
         <el-container class="left">
             <el-main>
                 <detail-blog></detail-blog>
@@ -14,33 +11,23 @@
         <footerBottom></footerBottom>
     </div>   
 </template>  
-<style>
-.headerList{
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    z-index: 100;
-}
+<style scoped>
 body{
     background: #e7e7e7;
 }
 .left{
     width: 1120px;
     margin: 0 auto 0;
-    margin-top: 90px;
+    /* margin-top: 90px; */
 }
 </style>
 <script>
     import navNewMenu from '@/components/header/navNewMenu'
-    import navHeader from '@/components/header/navHeader'
-    import navMenu from '@/components/header/navMenu'
     import detailBlog from '@/components/detail/detail'
     import rightTitle from '@/components/right/detailRight'
     import footerBottom from '@/components/footer/footer'
     export default{
         components: {
-          navHeader,
-          navMenu,
           detailBlog,
           rightTitle,
           footerBottom,

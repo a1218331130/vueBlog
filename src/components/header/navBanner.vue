@@ -102,10 +102,6 @@
 	width: 0;
 }
 </style>
-
-<style scoped>
-
-</style>
 <script>
 import axios from 'axios'
 import {FragmentBanner} from '../../../static/js/banner.js'

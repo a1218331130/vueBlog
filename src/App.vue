@@ -21,12 +21,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     padding: 0;
     vertical-align: baseline;
 }
+a{
+  text-decoration: none
+}
 li{
   list-style: none;
-}
-body{
-  margin: 0px;
-  padding: 0px;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

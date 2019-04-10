@@ -68,7 +68,7 @@
         </div>
     </div>   
 </template>  
-<style scoped>
+<style>
 .contentRight{
     display: inline-block;
     padding: 8px;

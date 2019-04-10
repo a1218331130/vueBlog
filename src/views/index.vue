@@ -19,7 +19,7 @@
         <footerBottom></footerBottom>
     </div>   
 </template>  
-<style>
+<style scoped>
 .bannerNav{
     margin-top: 90px
 }
@@ -38,8 +38,6 @@ body{
 }
 </style>
 <script>
-    import navHeader from '@/components/header/navHeader'
-    import navMenu from '@/components/header/navMenu'
     import navBanner from '@/components/header/navBanner'
     import navNewMenu from '@/components/header/navNewMenu'
     import leftCarousel from '@/components/left/carousel'
@@ -47,8 +45,6 @@ body{
     import footerBottom from '@/components/footer/footer'
     export default{
         components: {
-          navHeader,
-          navMenu,
           navBanner,
           navNewMenu,
           leftCarousel,

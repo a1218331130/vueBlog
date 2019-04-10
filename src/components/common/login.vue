@@ -471,6 +471,10 @@ Animation Keyframes
                             });
                             return;
                           }
+                          console.log(res.data.msg[0].useName, 'resresres');
+                          localStorage.setItem('useName',res.data.msg[0].useName);
+                          localStorage.setItem('token',res.data.token);
+                          // console.log(localStorage.getItem("useName"), 'res.data.msg[0].useNameres.data.msg[0].useName');
                           this.$message({
                             message: '登陆成功',
                             type: 'success'

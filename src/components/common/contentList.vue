@@ -53,7 +53,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
 .page{
     text-align: center;
 }

@@ -7,6 +7,8 @@ var commitChildModel = require('../models/commit').commitChildModel;
 var commitModel = require('../models/commit').commitModel;
 var path = require("path");
 var fs = require("fs");
+// 引入token模块
+var jwt = require("jsonwebtoken");
 var formidable = require('../node_modules/formidable');
 // mongoose.connect("mongodb://121.0.0.1:27017/userList");
 mongoose.connect('mongodb://127.0.0.1:27017/userList');
@@ -76,7 +78,11 @@ Router.post('/login',function(req,res,next){
        useName: req.body.useName,
        passWord: req.body.passWord,
    };
-   console.log(params);
+//    let secretOrPrivateKey=Math.floor(Math.random()*1000+1)
+//    let token = jwt.sign(params, secretOrPrivateKey, {
+//         expiresIn: 60*60*1 
+//     });
+//    console.log(token, 'tokentokentokentokentoken');
    userModel.find(params,function(err,doc){
       if(err) {
             res.json({
@@ -105,20 +111,26 @@ Router.post('/login',function(req,res,next){
                     loginTime: newDate.toLocaleString(),
                     userImage: url
                });
-            //    console.log(req.cookies.username, 'req.cookies.username');
-               user_new.save(function(err,user_news){
+            //    let secretOrPrivateKey=Math.floor(Math.random()*1000+1)
+                let token = jwt.sign(params, '123456', {
+                        expiresIn: 60*60*1 
+                });
+                console.log(token, 'tokentokentokentokentoken');
+                res.json({
+                    states: 1,
+                    msg: doc,
+                    token: token
+                });
+                user_new.save(function(err,user_news){
                    
                });
            }
-           res.json({
-                states: 1,
-                msg: doc
-            });
         }
    });
 });
 // 获取最近登陆
 Router.post('/getNewUser',function(req,res,next){
+    console.log(req.headers.token, 'req.headerreq.headerreq.header');
     let params = {};
     let newUser2 = newUserModel.find(params).skip(0).limit(10).sort({_id:-1});
     newUser2.exec(function(err,doc){
@@ -128,10 +140,28 @@ Router.post('/getNewUser',function(req,res,next){
                  msg: err.message
              });
          }else {
-            res.json({
-                 states: 1,
-                 msg: doc
-             });
+            let token = req.headers.token; // 从headers中获取token
+            // let secretOrPrivateKey="suiyi"; // 这是加密的key（密钥） 
+            jwt.verify(token, '123456', function (err, decode) {
+                if (err) {  //  时间失效的时候/ 伪造的token  
+                    res.json({
+                        states: 1,
+                        msg: doc,
+                        status: 0
+                    });        
+                    // res.send({'status':0});            
+                } else {
+                    res.json({
+                        states: 1,
+                        msg: doc,
+                        status: 1
+                    });    
+                }
+            })
+            // res.json({
+            //      states: 1,
+            //      msg: doc
+            //  });
          }
     });
  });

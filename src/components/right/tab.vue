@@ -24,7 +24,7 @@
 </el-tabs>
 </div>
 </template>
-<style>
+<style scoped>
 .tabs .el-tabs__item{
     padding:0 22px
 }

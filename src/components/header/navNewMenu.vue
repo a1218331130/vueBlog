@@ -17,7 +17,12 @@
               <li><a href="https://www.xuanfengge.com/about-message">关于&amp;留言</a></li> -->
             </ul>
         </div>
-        <div class="mod-header__music-icon" @click="toLogin">hi,{{useName}}</div>
+        <div class="mod-header__music-icon">
+          <p v-if="useName !== ''" style="width:200px">hi,{{useName}}
+            <span style="padding-left:5px;color:red" @click="loginOut">退出</span>
+          </p>
+          <p v-if="useName === ''" style="width:200px" @click="toLogin">登陆</p>
+        </div>
         <!-- <div class="mod-header__music-icon" @click="toLogin" style="right:-80px">退出</div> -->
     </div>
     <div class="audioUrl" style="opacity: 0;position:absolute">
@@ -33,7 +38,7 @@
 <style scoped>
 .mod-header__music-icon{
     position: absolute;
-    right: -40px;
+    right: 00px;
     top: 25px;
     width: 30px;
     height: 30px;
@@ -165,6 +170,22 @@ export default {
        this.$router.push({
             path: '/login'
         });
+    },
+    // 退出
+    loginOut() {
+       let paramOut = {
+          type: 'post',
+          path: '/blogUsers/loginOut',
+          datas: {}
+      }
+      this.$store.dispatch(paramOut).then(res=>{
+         this.$message({
+            message: '退出成功',
+            type: 'success'
+          });
+          localStorage.setItem('useName','null');
+          this.$store.commit('changeUser', '');
+      });
     },
     getMenus() {
       this.$store.dispatch('GET_MENU', {}).then((res)=>{
