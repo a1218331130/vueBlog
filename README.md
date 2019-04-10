@@ -1,4 +1,4 @@
-# demo2
+# 基于vue+node+express+mongdb的个人博客
 
 > A Vue.js project
 
