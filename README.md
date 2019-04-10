@@ -1,6 +1,7 @@
 # 基于vue+node+express+mongdb的个人博客
 
-> A Vue.js project
+> 1.前端框架时用vue2搭建，基于elementUI
+  2.
 
 ## Build Setup
 
