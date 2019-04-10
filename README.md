@@ -3,7 +3,6 @@
 > 技术应用
 
   1.前端框架时用vue2搭建，基于elementUI
-  
   2.vue-router的路由守卫，http请求拦截以及基于node的token认证用以实现登录验证与权限控制
   3.vuex的应用，建立并维护一个单一的、全应用范围共享的状态树，这里主要实现用户信息的保存，token的存储等
   4.ES6 Promise对axaios的封装，这里面用到了代码生成器，具体实现可以看我的简书博客https://www.jianshu.com/p/1acc54b8febe
