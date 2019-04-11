@@ -44,7 +44,7 @@ mongod -storageEngine mmapv1 --dbpath D:\MongoDB\data
 # 运行node服务，在server文件夹下运行
 npm start
 
-# 在根目录下运行
+# 打包在根目录下运行
 npm run build
 ```
 ## 博客页面
