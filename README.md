@@ -48,4 +48,4 @@ npm start
 npm run build
 ```
 ## 博客页面
-![image text](https://github.com/XLAccount/MiaoBo/blob/master/程序展示1.gif)
+![image text](https://github.com/a1218331130/vueBlog/blob/master/static/img/2.png)
