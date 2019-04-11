@@ -1,4 +1,4 @@
-# 基于vue+node+express+mongdb的个人博客
+# 基于vue+node+express+mongdb的个人博客（1.0版）
 
 ## 技术应用
 
@@ -47,5 +47,10 @@ npm start
 # 在根目录下运行
 npm run build
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 博客页面
+<p align="center">
+  <br>
+  <img width="400" src="./logo.svg" alt="logo of vue-awesome repository">
+  <br>
+  <br>
+</p>
