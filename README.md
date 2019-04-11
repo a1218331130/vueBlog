@@ -50,7 +50,7 @@ npm run build
 ## 博客页面
 <p align="center">
   <br>
-  <img width="400" src="https://github.com/a1218331130/vueBlog/blob/master/static/blogImage/%E7%99%BB%E9%99%86%E9%A1%B5%E9%9D%A2.PNG" alt="logo of vue-awesome repository">
+  <img width="400" src="https://p.ssl.qhimg.com/dmsmfl/120_75_/t01c1d9b714d96ebefe.webp?size=545x400&phash=662359831814340291" alt="logo of vue-awesome repository">
   <br>
   <br>
 </p>
