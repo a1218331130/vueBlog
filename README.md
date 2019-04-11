@@ -48,9 +48,4 @@ npm start
 npm run build
 ```
 ## 博客页面
-<p align="center">
-  <br>
-  <img width="400" src="https://p.ssl.qhimg.com/dmsmfl/120_75_/t01c1d9b714d96ebefe.webp?size=545x400&phash=662359831814340291" alt="logo of vue-awesome repository">
-  <br>
-  <br>
-</p>
+![image text](https://github.com/XLAccount/MiaoBo/blob/master/程序展示1.gif)
