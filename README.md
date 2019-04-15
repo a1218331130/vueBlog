@@ -44,13 +44,21 @@ mongod -storageEngine mmapv1 --dbpath D:\MongoDB\data
 # 运行node服务，在server文件夹下运行
 npm start
 
-# 在根目录下运行
+# 打包在根目录下运行
 npm run build
 ```
 ## 博客页面
-<p align="center">
-  <br>
-  <img width="400" src="./logo.svg" alt="logo of vue-awesome repository">
-  <br>
-  <br>
-</p>
+![image text](https://github.com/a1218331130/vueBlog/blob/master/static/blogImage/%E7%99%BB%E9%99%86%E9%A1%B5%E9%9D%A2.PNG)
+
+![image text](https://github.com/a1218331130/vueBlog/blob/master/static/blogImage/%E4%B8%BB%E9%A1%B5.PNG)
+
+![image text](https://github.com/a1218331130/vueBlog/blob/master/static/blogImage/%E8%AF%A6%E6%83%85.PNG)
+
+![image text](https://github.com/a1218331130/vueBlog/blob/master/static/blogImage/%E8%AF%84%E8%AE%BA.PNG)
+
+![image text](https://github.com/a1218331130/vueBlog/blob/master/static/blogImage/%E5%8F%91%E5%B8%83.PNG)
+
+![image text](https://github.com/a1218331130/vueBlog/blob/master/static/blogImage/%E6%88%91%E7%9A%84%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.PNG)
+
+![image text](https://github.com/a1218331130/vueBlog/blob/master/static/blogImage/%E8%81%8A%E5%A4%A9%E5%B7%A5%E5%85%B7.PNG)
+
