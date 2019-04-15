@@ -47,6 +47,8 @@ npm start
 # 打包在根目录下运行
 npm run build
 ```
+## 版本更新
+1.新增用户后台管理页面和文章管理页面
 ## 博客页面
 ![image text](https://github.com/a1218331130/vueBlog/blob/master/static/blogImage/%E7%99%BB%E9%99%86%E9%A1%B5%E9%9D%A2.PNG)
 
