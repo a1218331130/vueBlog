@@ -402,7 +402,43 @@ Router.post('/getNewList', function(req, res, next){
          }
     });
 });
-
+// 获取文章信息
+Router.post('/getArticleList', function(req, res, next){
+    let params = {
+    };
+    contentListModel.find(params,function(err,doc){
+        if(err) {
+            res.json({
+                states: 0,
+                msg: '获取列表数据失败'
+            });
+         }else {
+            res.json({
+                states: 1,
+                msg: doc
+            });
+         }
+    });
+});
+ // 删除用户信息
+ Router.post('/deletArticle',function(req,res,next){
+    let params = {
+        _id: req.body.id,
+    };
+    contentListModel.remove(params,function(err,doc){
+        if(err) {
+            res.json({
+                states: 0,
+                msg: err.message
+            });
+          }else {
+             res.json({
+                  states: 1,
+                  msg: '删除成功'
+              });
+          }
+     });
+ });
 // 查看详情
 Router.post('/getDetail', function(req, res, next){
     let params = {

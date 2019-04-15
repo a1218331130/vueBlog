@@ -123,7 +123,7 @@ h1.hogo {
   text-shadow: 0 0 10px #000, 0 0 20px #000, 0 0 30px #000, 0 0 40px #000, 0 0 50px #000, 0 0 60px #000, 0 0 70px #000;
   top: 50px;
 }
-h1.hogo:before {
+/* h1.hogo:before {
   animation: before-glow 2s ease-out infinite alternate;
   border-left: 535px solid transparent;
   border-bottom: 10px solid #00a4a2;
@@ -145,7 +145,7 @@ h1.hogo:after {
   top: 60px;
   transform: rotate(-47deg);
   width: 0;
-}
+} */
 
 /* =========================================
 Log in form
@@ -432,8 +432,8 @@ Animation Keyframes
         data(){
             return{
               dynamicValidateForm: {
-                useName: '',
-                passWord: ''
+                useName: 'admin',
+                passWord: 'admin'
               }
             }
         },
@@ -445,6 +445,13 @@ Animation Keyframes
         },
         methods: {
           loginAndRegit(type) {
+                    if(this.dynamicValidateForm.useName === '' || this.dynamicValidateForm.passWord === '') {
+                       this.$message({
+                            message: '用户名或者密码不能为空',
+                            type: 'error'
+                        });
+                        return;
+                    }
                     if(type === 'regist') {
                        let paramRegist = {
                            type: 'post',

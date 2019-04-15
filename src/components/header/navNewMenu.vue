@@ -77,6 +77,7 @@
     background-image: url(/static/img/logo.png);
     background-position: 4px 6px;
     background-repeat: no-repeat;
+    margin:0px
 }
 h1 {
     font-size: 24px;
@@ -224,6 +225,11 @@ export default {
               pathes = '/music'
           }else if(name === '关于作者') {
             pathes = '/autor'
+            // this.$message({
+            //   message: '暂无相关信息',
+            //   type: 'error'
+            // });
+            // return;
           }else if(name === '个人中心') {
             pathes = '/issue'
           }

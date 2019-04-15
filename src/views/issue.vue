@@ -26,15 +26,15 @@
 	  <!--//Header-->
 	    <div class="content">
 	       <aside>
-            <h2>Site Logo</h2>
+            <h2>管理界面</h2>
             <!-- <div class="controls">
               <input type="search" id="search" name="search" />
               <label for="search"><i class="fa fa-search"></i></label>
             </div> -->
               <nav class='site-nav'>
                 <a :class="leftNum === 0 ? 'active' : ''" @click="changeTitle(0)"><i class="fa fa-home"></i> 发布文章</a>
-                <a :class="leftNum === 1 ? 'active' : ''" @click="changeTitle(1)"><i class="fa fa-gift"></i> 发布记录</a>
-                <a :class="leftNum === 2 ? 'active' : ''" @click="changeTitle(2)"><i class="fa fa-line-chart"></i> 个人收藏</a>
+                <a :class="leftNum === 1 ? 'active' : ''" @click="changeTitle(1)"><i class="fa fa-gift"></i> 用户管理</a>
+                <a :class="leftNum === 2 ? 'active' : ''" @click="changeTitle(2)"><i class="fa fa-line-chart"></i>文章管理</a>
                 <a :class="leftNum === 3 ? 'active' : ''" @click="changeTitle(3)"><i class="fa fa-bell-o"></i> 个人设置</a>
               </nav> 
 	        </aside>
@@ -104,6 +104,12 @@
 				</article>
         <article v-if="leftNum === 3">
           <person-setting></person-setting>
+        </article>
+        <article v-if="leftNum === 1">
+          <person-guanli></person-guanli>
+        </article>
+         <article v-if="leftNum === 2">
+          <person-article></person-article>
         </article>
 	      </section>
 	    </div>
@@ -432,6 +438,8 @@ section article p {
   import {quillEditor} from 'vue-quill-editor'
   import hljs from 'highlight.js'
   import personSetting from '../components/issue/setting.vue'
+  import personGuanli from '../components/issue/user.vue'
+  import personArticle from '../components/issue/article.vue'
   import {mapState, mapGetters} from "vuex" //通过ES6的对象解构赋值
   // import { ImageDrop } from 'quill-image-drop-module'
   // import ImageResize from 'quill-image-resize-module'
@@ -441,7 +449,9 @@ export default {
   components: {
     quillRedefine,
     quillEditor,
-    personSetting
+    personSetting,
+    personGuanli,
+    personArticle
   },
   data () {
     return {

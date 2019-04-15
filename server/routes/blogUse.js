@@ -124,7 +124,12 @@ Router.post('/login',function(req,res,next){
                 user_new.save(function(err,user_news){
                    
                });
-           }
+           }else{
+            res.json({
+                states: 1,
+                msg: doc
+            });
+           }       
         }
    });
 });
@@ -243,4 +248,40 @@ Router.post('/loginOut', function(req, res, next){
           msg: '退出成功'
     });
 });
+// 获取用户信息
+Router.post('/getUserMsg',function(req,res,next){
+    let params = {};
+    userModel.find(params,function(err,doc){
+        if(err) {
+            res.json({
+                states: 0,
+                msg: err.message
+            });
+          }else {
+             res.json({
+                  states: 1,
+                  msg: doc
+              });
+          }
+     });
+ });
+ // 删除用户信息
+Router.post('/deletUser',function(req,res,next){
+    let params = {
+        _id: req.body.id,
+    };
+    userModel.remove(params,function(err,doc){
+        if(err) {
+            res.json({
+                states: 0,
+                msg: err.message
+            });
+          }else {
+             res.json({
+                  states: 1,
+                  msg: '删除成功'
+              });
+          }
+     });
+ });
 module.exports = Router;
