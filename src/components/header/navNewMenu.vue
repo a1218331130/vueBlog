@@ -3,27 +3,25 @@
     <div class="mod-header__progress"></div>
     <div class="mod-header__wrap">
         <h1 class="js_fly mod-header__logo">
-            <a href="https://www.xuanfengge.com">轩枫阁</a>
         </h1>
         <div class="js_menu mod-header__nav">
             <ul id="menu-nav" class="menu">
-              <li @click="selectMenu(item.menuName,item.indexNumber)" v-for="(item,index) in menuList" v-bind:key="index" @mouseenter="enter(index)" @mouseleave="leave"><a href="javascript:void(0)">{{item.menuName}}</a></li>
-              <!-- <li><a href="https://www.xuanfengge.com/category/h5">我的音乐</a></li>
-              <li><a href="https://www.xuanfengge.com/category/web">关于作者</a></li> -->
-              <!-- <li><a href="https://www.xuanfengge.com/category/skill">授人以渔</a></li>
+              <!-- <li @click="selectMenu(item.menuName,item.indexNumber)" v-for="(item,index) in menuList" v-bind:key="index" @mouseenter="enter(index)" @mouseleave="leave"><a href="javascript:void(0)">{{item.menuName}}</a></li> -->
+              <li><a href="https://www.xuanfengge.com/category/h5">我的音乐</a></li>
+              <li><a href="https://www.xuanfengge.com/category/web">关于作者</a></li>
+              <li><a href="https://www.xuanfengge.com/category/skill">授人以渔</a></li>
               <li><a href="https://www.xuanfengge.com/category/ui">UI设计</a></li>
               <li><a href="https://www.xuanfengge.com/category/wordpress">WP视点</a></li>
               <li><a href="https://www.xuanfengge.com/category/code">程序人生</a></li>
-              <li><a href="https://www.xuanfengge.com/about-message">关于&amp;留言</a></li> -->
+              <li><a href="https://www.xuanfengge.com/about-message">关于&amp;留言</a></li>
             </ul>
         </div>
-        <div class="mod-header__music-icon">
+        <!-- <div class="mod-header__music-icon">
           <p v-if="useName !== ''" style="width:200px">hi,{{useName}}
             <span style="padding-left:5px;color:red" @click="loginOut">退出</span>
           </p>
           <p v-if="useName === ''" style="width:200px" @click="toLogin">登陆</p>
-        </div>
-        <!-- <div class="mod-header__music-icon" @click="toLogin" style="right:-80px">退出</div> -->
+        </div> -->
     </div>
     <div class="audioUrl" style="opacity: 0;position:absolute">
                 <audio
@@ -95,7 +93,7 @@ h1 {
 }
 .mod-header__nav li {
     float: left;
-    width: 90px;
+    width: 14%;
     position: relative;
     display: inline-block;
     -webkit-transition: all .2s cubic-bezier(.4,0,1,1);

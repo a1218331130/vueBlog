@@ -1,44 +1,88 @@
 <template>
 <div class="carousel">
-	 <!-- <el-carousel :interval="4000" height="271px">
-		<el-carousel-item v-for="item in imageList" :key="item">
-		   <img :src="item" style="width:100%">
-		</el-carousel-item>
-  </el-carousel> -->
-  <div class="content">
-     <content-list></content-list>
-  </div>
+    <ul>
+       <li class="el-icon-folder-opened"><span>12</span></li>
+       <li class="el-icon-folder-opened"><span>12</span></li>
+       <li class="el-icon-folder-opened"><span>12</span></li>
+    </ul>
 </div>
 </template>
 <style scoped>
-.sina-nav-header{
-    width: 1120px;
-    margin: 0 auto 0;
+.carousel ul li{
+    width: 100%;
+    border-radius: 0px;
+    color: #000;
+    font-size: 15px;
+    padding: 10px;
 }
-.menu{
-	background: white;
+.carousel ul li span{
+    padding-left: 5px
 }
 </style>
 <script>
-import contentList from '../common/contentList'
+import {mapState, mapGetters} from "vuex";//通过ES6的对象解构赋值
 export default {
   components: {
-     contentList
   },
   data () {
     return {
-       activeIndex: '1',
-       imageList: [
-         '/static/img/PPT2-1.jpg',
-         '/static/img/chrome-2.jpg'
-       ]
     }
   },
+  computed: {
+     ...mapGetters(['menuIndex'])
+  },
+  watch: {
+     menuIndex(val) {
+        if(val) {
+          this.pageIndex = 1;
+          this.getList();
+        }
+     }
+  },
   methods: {
-    
+      handleCurrentChange(val) {
+      this.loading = true;
+      this.pageIndex = val;
+      this.getList();
+    },
+    getList() {
+       alert(12);
+       //  console.log(val);
+       let getLists = {
+          type: 'post',
+          path: '/menu/getList',
+          datas: {
+              menuName: this.menuIndex,
+              pageSize: this.pageSize,
+              pageIndex: this.pageIndex
+          }
+        }
+        this.$store.dispatch(getLists).then(res=>{
+            if(res.data.states !== 0) {
+               this.loading = false;
+               window.scrollTo(0,0);// 请求成功滚动条滚到顶部
+               this.totalList = res.data.total;
+               this.contentLists = res.data.msg.map(res=>{
+                   return {
+                     menuName: res.menuName,
+                     title: res.title,
+                     desc1: res.desc1,
+                     content:res.content,
+                     imgUrl: res.imgUrl,
+                     regionChild: res.regionChild,
+                     autor: res.autor,
+                     time: res.time.slice(0,10),
+                     zan: res.zan,
+                     pinglun: res.pinglun,
+                     detailId: res.detailId
+                   }
+               });
+            }
+        });
+    },
   },
   mounted () {
-
+     this.getList();
   }
 }
 </script>

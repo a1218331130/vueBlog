@@ -3,25 +3,40 @@
         <div class="headerList">
            <nav-new-menu></nav-new-menu>
            <!-- <nav-header></nav-header> -->
-           
         </div>
-        <div class="bannerNav">
+        <div class="container">
+            <div class="leftSide">
+                <left-carousel></left-carousel>
+            </div>
+            <div class="rightSide"></div>
+        </div>
+        <!-- <div class="bannerNav">
             <nav-banner></nav-banner>
-        </div>
-        <el-container class="left">
-            <el-main style="padding:0px;margin-top:10px">
+        </div> -->
+        <!-- <el-container class="left bannerNav">
+            <el-main width="300px" style="padding:0px;margin-top:10px">
                 <left-carousel></left-carousel>
             </el-main>
-            <el-aside width="300px" style="margin-left:10px">
+            <el-aside style="margin-left:10px">
                 <right-title></right-title>
             </el-aside>
-        </el-container>
-        <footerBottom></footerBottom>
-    </div>   
-</template>  
+        </el-container> -->
+        <!-- <footerBottom></footerBottom> -->
+    </div>
+</template>
 <style scoped>
-.bannerNav{
-    margin-top: 90px
+.container{
+    display: flex;
+    margin-top:90px;
+    height: calc(100vh - 100px);
+}
+.container .leftSide{
+    width:350px;
+    /* background: red; */
+}
+.container .rightSide{
+    flex:1;
+    background: blue;
 }
 .headerList{
     position: fixed;
@@ -38,18 +53,18 @@ body{
 }
 </style>
 <script>
-    import navBanner from '@/components/header/navBanner'
+    // import navBanner from '@/components/header/navBanner'
     import navNewMenu from '@/components/header/navNewMenu'
     import leftCarousel from '@/components/left/carousel'
     import rightTitle from '@/components/right/detailRight'
-    import footerBottom from '@/components/footer/footer'
+    // import footerBottom from '@/components/footer/footer'
     export default{
         components: {
-          navBanner,
+        //   navBanner,
           navNewMenu,
           leftCarousel,
-          rightTitle,
-          footerBottom
+          rightTitle
+        //   footerBottom
         },
         data(){
             return{

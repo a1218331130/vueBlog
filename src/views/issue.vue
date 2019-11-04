@@ -460,30 +460,30 @@ export default {
       limits: 1,
       fileList2: [],
        ruleForm: {
-          name: '',
-          region: '',
+          name: 'qwqwqw',
+          region: 'qwqwqw',
           resource: '',
-          desc1: '',
-          content:  '',
-          regionChild: '',
+          desc1: 'qwqw',
+          content:  'wewew',
+          regionChild: 'qwqwqw',
           imgUrl: '',
           codeChild: '',
           detailId: '' ,
           time: '' 
        },
        rules: {
-          name: [
-            { required: true, message: '请输入文章名称', trigger: 'blur' }
-          ],
-          region: [
-            { required: true, message: '请选择文章类型', trigger: 'change' }
-          ],
-          regionChild: [
-            { required: true, message: '请选择文章类型', trigger: 'change' }
-          ],
-          desc: [
-            { required: true, message: '请填写内容简介', trigger: 'blur' }
-          ]
+          // name: [
+          //   { required: true, message: '请输入文章名称', trigger: 'blur' }
+          // ],
+          // region: [
+          //   { required: true, message: '请选择文章类型', trigger: 'change' }
+          // ],
+          // regionChild: [
+          //   { required: true, message: '请选择文章类型', trigger: 'change' }
+          // ],
+          // desc: [
+          //   { required: true, message: '请填写内容简介', trigger: 'blur' }
+          // ]
         },
        ifOpen: true,
        timeId: '',

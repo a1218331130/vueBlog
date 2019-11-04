@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="referrer" content="never">
-    <title>demo2</title>
+    <title>莫沫达个人博客</title>
     <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-    
+
     <!-- Animate.css -->
     <!-- <link rel="stylesheet" href="static/css/animate.css"> -->
     <!-- Icomoon Icon Fonts-->
@@ -26,7 +26,7 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
-  	
+
 	<!-- jQuery -->
 	<script src="static/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -42,7 +42,7 @@
 	<!-- Google Map -->
 
 	<script src="static/js/google_map.js"></script>
-	
+
 	<!-- Main -->
 	<script src="static/js/main.js"></script>
   <script>
@@ -55,7 +55,7 @@ function FragmentBanner(option) {
 
 	//容器将包容控制器
 	this.container = '.banner';
-	
+
 	//默认的控制器
 	this.controller = {
 		view : '.banner-view',
@@ -122,7 +122,7 @@ FragmentBanner.prototype = {
 			this.container.style.width = this.size.width+'px';
 			this.container.style.height = this.size.height+'px';
 		}
-		
+
 		this.elem = {};
 		for(var e in this.controller){
 
@@ -154,7 +154,7 @@ FragmentBanner.prototype = {
 					backgroundSize : this.size.width + 'px ' + this.size.height +'px',
 					backgroundPosition : w * -j+'px ' + h * -i+'px'
 				});
-				
+
 				this.elem.view.appendChild(newI);
 				this.elem.viewBox.push(newI);
 			}
@@ -162,7 +162,7 @@ FragmentBanner.prototype = {
 
 		//按钮动作
 		for (var b = 1; b >= 0; b--) {
-			
+
 			var oB = document.createElement('span');
 			(b) ? oB.innerHTML = '&lt;' : oB.innerHTML = '&gt;';
 			oB.setIndex = b;
@@ -217,10 +217,10 @@ FragmentBanner.prototype = {
 	setIndex : function(){
 
 		this.index %= this.imgs.length;
-		
+
 		this.index = (this.index < 0) ? this.imgs.length - 1 : this.index;
 
-		this.elem.numFind[this.index].className = 'on'; 
+		this.elem.numFind[this.index].className = 'on';
 	},
 
 	getTypeTime : function(){
@@ -243,7 +243,7 @@ FragmentBanner.prototype = {
 
 		return timer;
 	},
-	
+
 	show : function(order){
 
 		order = order || {};
@@ -263,7 +263,7 @@ FragmentBanner.prototype = {
 						change : true
 					});
 				}.bind(this));
-			
+
 			var status = true,
 				activeTime = 0;
 
@@ -274,7 +274,7 @@ FragmentBanner.prototype = {
 					obj = this.elem.viewBox[i];
 
 					activeTime = Math.max(activeTime,startTime[1] + endTime[1]);
-				
+
 				this.anime(obj,{
 					left :  Math.ceil(Math.random() * this.size.width * 2 - this.size.width),
 					top : Math.ceil(Math.random() * this.size.height * 2 - this.size.height),
@@ -282,7 +282,7 @@ FragmentBanner.prototype = {
 				}, startTime[0] ,function(obj){
 
 					if(order.switch && status){
-					
+
 						if(/number/i.test(typeof order.change)){
 
 							this.index = order.change;
@@ -290,7 +290,7 @@ FragmentBanner.prototype = {
 
 							(order.change) ? ++this.index : --this.index;
 						}
-						
+
 						this.setIndex();
 						this.elem.numFind[this.index].className = 'on';
 						status = false;

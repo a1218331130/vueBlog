@@ -13,6 +13,12 @@ import chatComponent from '../components/chat/chat'
 Vue.use(Router)
 const routes = [
   {
+    path: '/',
+    name: 'blogIndex',
+    redirect: '/blog',
+    component: blogIndex
+  },
+  {
     path: '/blog',
     name: 'blogIndex',
     component: blogIndex

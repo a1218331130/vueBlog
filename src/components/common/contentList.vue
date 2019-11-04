@@ -221,6 +221,7 @@ export default {
       this.getList();
     },
     getList() {
+       alert(12);
        //  console.log(val);
        let getLists = {
           type: 'post',

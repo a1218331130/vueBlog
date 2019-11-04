@@ -20,6 +20,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     outline: 0;
     padding: 0;
     vertical-align: baseline;
+    width: 100%;
+}
+html, body{
+  height: calc(100vh - 100px);
 }
 a{
   text-decoration: none
