@@ -25,6 +25,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 html, body{
   width: 100%;
   height: 100%;
+  overflow: hidden;
   /* height: calc(100vh - 100px); */
 }
 a{

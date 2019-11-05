@@ -4,7 +4,8 @@ const state = {
  useName: '',
  useImage: '',
  menuIndex: '我的首页',
- getTest: 12121212
+ getTest: 12121212,
+ rightHtml: ''
 }
 const mutations={
   changeMenuIndex(state, newMenuIndex) {
@@ -15,6 +16,9 @@ const mutations={
   },
   getUseImage(state, newImage) {
      state.useImage = newImage
+  },
+  getRightHtml(state, rightHtml) {
+     state.rightHtml = rightHtml
   },
   ['gettest'](state, payload) {
    state.getTest = payload.tree

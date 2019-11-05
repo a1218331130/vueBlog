@@ -70,18 +70,9 @@
   import { mavonEditor } from 'mavon-editor'
   import 'mavon-editor/dist/css/index.css'
   // import '@/assets/css/dark.min.css'
-  import hljs from 'highlight.js'
   import {mapState, mapGetters} from "vuex" //通过ES6的对象解构赋值
   import marked from 'marked'
-  import Vue from 'vue'
-//封装成一个指令
-  Vue.directive('highlight', (el) => {
-      let blocks = el.querySelectorAll('pre code')
-      blocks.forEach((block) => {
-          hljs.highlightBlock(block)
-      })
-  })
-export default {
+  export default {
   components: {
     // quillRedefine,
     // quillEditor,
@@ -134,22 +125,22 @@ export default {
   },
   computed: {
      ...mapGetters(['useImage']),
-     issueContentData() {
-        var content = marked(this.issueContent);
-        return content
-     },
+    //  issueContentData() {
+    //     var content = marked(this.issueContent);
+    //     return content
+    //  },
   },
   methods: {
-    getSetInfo() {
-         let getSetting = {
-            type: 'post',
-            path: '/blogUsers/getSettingMsg',
-            datas: {}
-         }
-         this.$store.dispatch(getSetting).then(res=>{
-            this.$store.commit('getUseImage',  res.data.msg.image);     
-         });
-    },
+    // getSetInfo() {
+    //      let getSetting = {
+    //         type: 'post',
+    //         path: '/blogUsers/getSettingMsg',
+    //         datas: {}
+    //      }
+    //      this.$store.dispatch(getSetting).then(res=>{
+    //         this.$store.commit('getUseImage',  res.data.msg.image);     
+    //      });
+    // },
     $imgAdd(pos, $file){
             // 第一步.将图片上传到服务器.
            var formdata = new FormData();
@@ -218,7 +209,7 @@ export default {
     }
   },
   mounted () {
-     this.getSetInfo();
+    //  this.getSetInfo();
      setInterval(() => {
         this.timeId = new Date().getTime().toString();
         // console.log(this.timeId);

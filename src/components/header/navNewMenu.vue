@@ -7,13 +7,13 @@
         <div class="js_menu mod-header__nav">
             <ul id="menu-nav" class="menu">
               <!-- <li @click="selectMenu(item.menuName,item.indexNumber)" v-for="(item,index) in menuList" v-bind:key="index" @mouseenter="enter(index)" @mouseleave="leave"><a href="javascript:void(0)">{{item.menuName}}</a></li> -->
-              <li><a href="https://www.xuanfengge.com/category/h5">我的音乐</a></li>
-              <li><a href="https://www.xuanfengge.com/category/web">关于作者</a></li>
-              <li><a href="https://www.xuanfengge.com/category/skill">授人以渔</a></li>
+              <li><a href="https://www.xuanfengge.com/category/h5">我的首页</a></li>
+              <li><a href="https://www.xuanfengge.com/category/web">VUE</a></li>
+              <!-- <li><a href="https://www.xuanfengge.com/category/skill">授人以渔</a></li>
               <li><a href="https://www.xuanfengge.com/category/ui">UI设计</a></li>
               <li><a href="https://www.xuanfengge.com/category/wordpress">WP视点</a></li>
               <li><a href="https://www.xuanfengge.com/category/code">程序人生</a></li>
-              <li><a href="https://www.xuanfengge.com/about-message">关于&amp;留言</a></li>
+              <li><a href="https://www.xuanfengge.com/about-message">关于&amp;留言</a></li> -->
             </ul>
         </div>
         <!-- <div class="mod-header__music-icon">

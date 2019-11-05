@@ -1,9 +1,7 @@
 <template>
 <div class="carousel">
     <ul>
-       <li class="el-icon-folder-opened"><span>12</span></li>
-       <li class="el-icon-folder-opened"><span>12</span></li>
-       <li class="el-icon-folder-opened"><span>12</span></li>
+       <li @click="changeLi(index, item)" :class="num === index ? 'bgColor' : 'bgColorNone'" class="el-icon-folder-opened" v-for="(item, index) in contentLists" :key="index"><span>{{item.title}}</span></li>
     </ul>
 </div>
 </template>
@@ -14,6 +12,20 @@
     color: #000;
     font-size: 15px;
     padding: 10px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.carousel ul .bgColor{
+    color: white;
+    background: #000;
+}
+.carousel ul .bgColorNone{
+    color: #000;
+    background: white;
+}
+.carousel ul li:hover{
+  cursor: pointer;
 }
 .carousel ul li span{
     padding-left: 5px
@@ -26,6 +38,8 @@ export default {
   },
   data () {
     return {
+      contentLists: [],
+      num: 0
     }
   },
   computed: {
@@ -40,13 +54,16 @@ export default {
      }
   },
   methods: {
-      handleCurrentChange(val) {
+    handleCurrentChange(val) {
       this.loading = true;
       this.pageIndex = val;
       this.getList();
     },
+    changeLi(index, item) {
+      this.num = index;
+      this.$store.commit('getRightHtml', item.content);
+    },
     getList() {
-       alert(12);
        //  console.log(val);
        let getLists = {
           type: 'post',
@@ -62,21 +79,8 @@ export default {
                this.loading = false;
                window.scrollTo(0,0);// 请求成功滚动条滚到顶部
                this.totalList = res.data.total;
-               this.contentLists = res.data.msg.map(res=>{
-                   return {
-                     menuName: res.menuName,
-                     title: res.title,
-                     desc1: res.desc1,
-                     content:res.content,
-                     imgUrl: res.imgUrl,
-                     regionChild: res.regionChild,
-                     autor: res.autor,
-                     time: res.time.slice(0,10),
-                     zan: res.zan,
-                     pinglun: res.pinglun,
-                     detailId: res.detailId
-                   }
-               });
+               this.contentLists = res.data.msg;
+               this.$store.commit('getRightHtml', this.contentLists[0].content);
             }
         });
     },

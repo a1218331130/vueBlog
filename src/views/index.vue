@@ -8,7 +8,9 @@
             <div class="leftSide">
                 <left-carousel></left-carousel>
             </div>
-            <div class="rightSide"></div>
+            <div class="rightSide">
+                <detail-right></detail-right>
+            </div>
         </div>
         <!-- <div class="bannerNav">
             <nav-banner></nav-banner>
@@ -31,12 +33,19 @@
     height: calc(100vh - 100px);
 }
 .container .leftSide{
-    width:350px;
+    width:300px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x:hidden; 
     /* background: red; */
 }
 .container .rightSide{
     flex:1;
-    background: blue;
+    height: 100%;
+    overflow-y: auto;
+    padding: 0px 20px;
+    padding-left: 50px;
+    /* background: blue; */
 }
 .headerList{
     position: fixed;
@@ -56,14 +65,14 @@ body{
     // import navBanner from '@/components/header/navBanner'
     import navNewMenu from '@/components/header/navNewMenu'
     import leftCarousel from '@/components/left/carousel'
-    import rightTitle from '@/components/right/detailRight'
+    import detailRight from '@/components/right/detailRight'
     // import footerBottom from '@/components/footer/footer'
     export default{
         components: {
         //   navBanner,
           navNewMenu,
           leftCarousel,
-          rightTitle
+          detailRight
         //   footerBottom
         },
         data(){
