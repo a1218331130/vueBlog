@@ -1,249 +1,304 @@
 <template>
-  <header class="js_header mod-header">
-    <div class="mod-header__progress"></div>
-    <div class="mod-header__wrap">
-        <h1 class="js_fly mod-header__logo">
-        </h1>
-        <div class="js_menu mod-header__nav">
-            <ul id="menu-nav" class="menu">
-              <!-- <li @click="selectMenu(item.menuName,item.indexNumber)" v-for="(item,index) in menuList" v-bind:key="index" @mouseenter="enter(index)" @mouseleave="leave"><a href="javascript:void(0)">{{item.menuName}}</a></li> -->
-              <li><a href="https://www.xuanfengge.com/category/h5">我的首页</a></li>
-              <li><a href="https://www.xuanfengge.com/category/web">VUE</a></li>
-              <!-- <li><a href="https://www.xuanfengge.com/category/skill">授人以渔</a></li>
-              <li><a href="https://www.xuanfengge.com/category/ui">UI设计</a></li>
-              <li><a href="https://www.xuanfengge.com/category/wordpress">WP视点</a></li>
-              <li><a href="https://www.xuanfengge.com/category/code">程序人生</a></li>
-              <li><a href="https://www.xuanfengge.com/about-message">关于&amp;留言</a></li> -->
-            </ul>
-        </div>
-        <!-- <div class="mod-header__music-icon">
-          <p v-if="useName !== ''" style="width:200px">hi,{{useName}}
-            <span style="padding-left:5px;color:red" @click="loginOut">退出</span>
-          </p>
-          <p v-if="useName === ''" style="width:200px" @click="toLogin">登陆</p>
-        </div> -->
+<header class="site-header no-select gizle is-homepage yya sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">莫沫达博客</span>
+            <!-- <span class="shironeko">blog</span> -->
+          </a>
+        </span>
+      </span>
     </div>
-    <div class="audioUrl" style="opacity: 0;position:absolute">
-                <audio
-                   :src="musicUrl" 
-                   controls="controls" 
-                   ref="audio" 
-                   autoplay="false">
-                </audio>
+    <div class="searchbox search-form-submit">
+      欢迎你：{{userName}}
+      <i class="fa fa-sign-out" @click="loginOut" style="margin-left:10px;cursor:pointer">
+      </i>
     </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+              <li @click="showOtherPage(item.url)" @mouseover="liMouseOver(item.url)" @mouseleave="liMouseLeave('')" v-for="(item, index) in headerMenuList" :key="index">
+                <a href="javascript:void(0)" >
+                  <span class="faa-parent animated-hover">
+                    <i :class="[{'swing': liItem === item.url}, 'fa faa-shake animated', item.class]" aria-hidden="true"></i>
+                      {{item.name}}
+                  </span>
+                </a>
+              </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
 </header>
 </template>
 <style scoped>
-.mod-header__music-icon{
-    position: absolute;
-    right: 00px;
-    top: 25px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    font-size: 18px;
-    color: #29d;
+@keyframes sitetop {
+    0% {
+    opacity:0;
+    transform:translateX(-30px)
+    }
+    100% {
+        opacity:1;
+        transform:translateX(0)
+    }
 }
-.mod-header {
-    width: 100%;
-    height: 74px;
-    position: relative;
-    background: #eaebed;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#d4d7db');
-    background: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#d4d7db));
-    background: -moz-linear-gradient(top,#fff,#d4d7db);
-    box-shadow: 0 4px 4px rgba(0,0,0,.2);
-    display: block;
+@keyframes searchbox {
+    0% {
+    opacity:0;
+    transform:translateX(30px)
 }
-.mod-header__progress {
-    width: 100%;
-    height: 2px;
-    background: #29d;
-    -webkit-animation: hue 20s infinite linear;
+100% {
+    opacity:1;
+    transform:translateX(0)
 }
-.mod-header__wrap {
-    position: relative;
-    width: 1200px;
-    margin: 0 auto;
 }
-.mod-header__logo {
-    float: left;
-    position: relative;
-    width: 180px;
-    height: 60px;
-    text-indent: -999em;
-    background-image: url(/static/img/logo.png);
-    background-position: 4px 6px;
-    background-repeat: no-repeat;
-    margin:0px
+.no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
-h1 {
-    font-size: 24px;
+.sabit {
+    top: 0;
+    z-index: 9999;
 }
-.mod-header__logo a {
-    width: 140px;
-    min-height: 60px;
-    display: block;
+.gizle {
+    top: -100px;
+    top: 0;
+    z-index: 9999;
 }
-.mod-header__nav {
-    float: right;
-    width: 810px;
-    height: 70px;
-    overflow: hidden;
-}
-.mod-header__nav li {
-    float: left;
-    width: 14%;
-    position: relative;
-    display: inline-block;
-    -webkit-transition: all .2s cubic-bezier(.4,0,1,1);
-    transition: all .2s cubic-bezier(.4,0,1,1);
-}
-.mod-header__nav li a {
-    position: relative;
-    color: #333;
-    text-decoration: none;
-    text-align: center;
-    line-height: 70px;
-    font-family: Microsoft YaHei;
-    font-size: 14px;
-    display: block;
-    z-index: 100;
-}
-.menu li:nth-child(1):after {
-    background: #b9d329;
-}
-.menu li:nth-child(2):after {
-    background: #c0ebf7;
-}
-.menu li:nth-child(3):after {
-    background: #b9d329;
-}
-.menu li:nth-child(4):after {
-    background: #69bcf3;
-}
-.menu li:nth-child(5):after {
-    background: #79d9f3;
-}
-.menu li:nth-child(6):after {
-    background: #ffae5b;
-}
-.menu li:nth-child(7):after {
-    background: #acd180;
-}
-.menu li:nth-child(8):after {
-    background: #fab4cc;
-}
-.mod-header__nav li:after {
-    content: "";
-    position: absolute;
+.yya {
+    position: fixed;
     left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 70px;
-    top: 66px;
-    -webkit-transition: .2s all ease-in-out;
-    transition: .2s all ease-in-out;
+    background: rgba(255,255,255,.95);
+    box-shadow: 0 1px 40px -8px rgba(0,0,0,.5);
 }
-.mod-header__nav li.on:after,.mod-header__nav li:hover:after{top:0}
+.site-header {
+    width: 100%;
+    height: 75px;
+    background: white;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+}
+.site-top {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.site-branding {
+    float: left;
+    position: relative;
+    height: 75px;
+    line-height: 75px;
+    margin-left: -6px;
+}
+.site-branding {
+    animation: sitetop 1s;
+}
+.site-title {
+    margin: 0;
+}
+.site-header.is-homepage.yya .lower-cantiner {
+    display: block;
+}
+.site-header.is-homepage .lower-cantiner {
+    display: none;
+}
+.site-top .lower-cantiner {
+    position: absolute;
+    left: 50%;
+    min-width: 758.4px;
+    pointer-events: none;
+}
+.site-top .lower {
+    display: inline-block;
+    margin: 15px 0 0 10px;
+    font-size: 16px;
+    position: relative;
+    left: -50%;
+    pointer-events: auto !important;
+}
+.searchbox {
+    float: right;
+    height: 75px;
+    line-height: 75px;
+    margin-right: 50px;
+}
+i.iconfont.js-toggle-search.iconsearch {
+    color: #666;
+    cursor: pointer;
+    font-size: 26px;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+.searchbox, .site-top .lower, .header-user-avatar {
+    animation: searchbox 1s;
+}
+.site-top .lower nav {
+    display: block !important;
+}
+.site-top .lower nav {
+    position: relative;
+    float: right;
+    display: none;
+    animation: searchbox .2s;
+}
+.site-top ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+}
+.site-top ul li {
+    float: left;
+    margin: 0 13px;
+    position: relative;
+    -webkit-transition: all 1s ease;
+}
+.site-top ul li a {
+    padding: 10px 0;
+    display: inline-block;
+    color: #666;
+}
+a {
+    color: #e67474;
+    outline: 0;
+    -webkit-transition: color .2s ease-out,border .2s ease-out,opacity .2s ease-out;
+    -moz-transition: color .2s ease-out,border .2s ease-out,opacity .2s ease-out;
+    transition: color .2s ease-out,border .2s ease-out,opacity .2s ease-out;
+}
+a {
+    background-color: transparent;
+    text-decoration: none;
+    cursor: url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cursor/ayuda.cur),auto;
+}
+.site-top ul li a {
+    padding: 10px 0;
+    display: inline-block;
+    color: #666;
+}
+/* .site-top ul li a:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -16px;
+    height: 6px;
+    background-color: #fe9600;
+    width: 100%;
+    max-width: 0;
+    transition: max-width .25s ease-in-out;
+} */
+.site-top ul li a:hover{
+   color: #fe9600;
+}
+.logolink.moe-mashiro a {
+    color: #464646;
+    float: left;
+    font-size: 28px;
+    font-weight: 800;
+    height: 56px;
+    line-height: 56px;
+    padding-left: 6px;
+    padding-right: 15px;
+    padding-top: 5px;
+    text-decoration-line: none;
+}
+.logolink.moe-mashiro .sakurasono {
+    font-size: 25px;
+    border-radius: 9px;
+    padding-bottom: 2px;
+    padding-top: 5px;
+}
+
+.logolink .sakurasono {
+    background-color: rgba(255,255,255,.5);
+    border-radius: 5px;
+    color: #464646;
+    height: auto;
+    line-height: 25px;
+    margin-right: 0;
+    padding-bottom: 0;
+    padding-top: 1px;
+    text-size-adjust: 100%;
+    width: auto;
+}
+.logolink.moe-mashiro .shironeko {
+    margin-left: -5px;
+}
 </style>
 <script>
-import axios from 'axios'
-import loginDialog from './loginDialog'
-import {mapState, mapGetters} from "vuex";//通过ES6的对象解构赋值
 export default {
   components: {
-    loginDialog
   },
   data () {
     return {
-      musicUrl: '',
-      menuList: []
+      liItem: '',
+      userName: '',
+      headerMenuList: [
+         {
+           name: '首页',
+           url: 'firstPage',
+           class: 'fa-home'
+         },
+          {
+           name: '音乐',
+           url: 'music',
+           class: 'fa-music'
+         },
+          {
+           name: '发布',
+           url: 'issue',
+           class: 'fa-columns'
+         }
+      ]
     }
   },
   computed: {
-     ...mapGetters(['menuIndex', 'useName'])
   },
   methods: {
-    toLogin() {
-       this.$router.push({
-            path: '/login'
-        });
-    },
-    // 退出
-    loginOut() {
-       let paramOut = {
-          type: 'post',
-          path: '/blogUsers/loginOut',
-          datas: {}
-      }
-      this.$store.dispatch(paramOut).then(res=>{
-         this.$message({
-            message: '退出成功',
-            type: 'success'
-          });
-          localStorage.setItem('useName','null');
-          this.$store.commit('changeUser', '');
-      });
-    },
-    getMenus() {
-      this.$store.dispatch('GET_MENU', {}).then((res)=>{
-         console.log(res, 'resresresres');
-         this.menuList = res.data.msg;	
-      });
-    },
-    enter(index) {
-      this.musicUrl = '/static/music/' + (parseInt(index) + 1) + '.mp3';
-      // this.$refs.audio.play();
-      console.log(this.musicUrl);
-    },
-    leave() {
-      this.musicUrl = '';
-    },
-    // 初始化用户名，判断是否已经登陆
-    init() {
-      let paramInit = {
-          type: 'post',
-          path: '/blogUsers/getUserNames',
-          datas: {}
-      }
-      this.$store.dispatch(paramInit).then(res=>{
-        if(res.data.state === 1) {
-          this.$store.commit('changeUser', res.data.msg);
-        //   this.ifLogin = true;
-        }else {
-        //   this.ifLogin = false;
-        }  
-      });
-    },
-    selectMenu(name, num) {
-       let pathes = '';
-       if(parseInt(num) >= 6) {
-          if(name === '我的音乐') {
-              pathes = '/music'
-          }else if(name === '关于作者') {
-            pathes = '/autor'
-            // this.$message({
-            //   message: '暂无相关信息',
-            //   type: 'error'
-            // });
-            // return;
-          }else if(name === '个人中心') {
-            pathes = '/issue'
-          }
+    // 鼠标移上去
+     liMouseOver(item){
+        this.liItem = item;
+     },
+     // 鼠标移出来
+     liMouseLeave(item) {
+        this.liItem = item;
+     },
+     // 页面跳转
+     showOtherPage(url) {
+       if(url === 'music' || url === 'issue') {
           let routeData = this.$router.resolve({
-            path: pathes
+            name: url
           });
           window.open(routeData.href, '_blank');
-          return;
        }
-       this.$store.commit('changeMenuIndex',name);
-       this.$router.push({path:'/blog'});
-	},
+     },
+      loginOut() {
+        //  console.log(val);
+            let loginOut = {
+                type: 'post',
+                path: '/blogUsers/login',
+                datas: {
+                }
+            }
+            this.$store.dispatch(loginOut).then(res=>{
+                this.$router.push({path: '/login'});
+                localStorage.removeItem("useName");
+            });
+        }
   },
   mounted () {
-    this.getMenus();
-    this.init();
+    this.userName = localStorage.getItem("useName");
   }
 }
 </script>

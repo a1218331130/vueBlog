@@ -487,7 +487,7 @@ Animation Keyframes
                             type: 'success'
                           });
                           this.$router.push({
-                             path: '/blog'
+                             path: '/blog/firstPage'
                           });
                        });
                     }

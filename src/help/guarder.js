@@ -23,8 +23,7 @@ export default function (router) {
     // })
     router.beforeEach((to, from, next) => {
       NProgress.start()
-      console.log(to.path, '121212');
-      if(localStorage.getItem("useName") === 'null' && to.path !== '/login') {
+      if(localStorage.getItem("useName") === null && to.path !== '/login') {
         console.log(to.path, 'totototototototo2');
         next({path: '/login'})       
       }else{

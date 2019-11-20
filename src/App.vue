@@ -25,7 +25,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 html, body{
   width: 100%;
   height: 100%;
-  overflow: hidden;
   /* height: calc(100vh - 100px); */
 }
 a{
@@ -43,4 +42,20 @@ li{
   color: #2c3e50;
   margin-top: 60px; */
 }
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: #eaeaea;
+  /* border-left: 1px solid #fe9600; */
+}
+/* ::-webkit-scrollbar-thumb {
+  background-color: #fe9600;
+} */
+/* ::-webkit-scrollbar-thumb:hover {
+  background-color: #fe9600;
+}
+::-webkit-scrollbar-thumb:active{
+  background-color:#fe9600;
+} */
 </style>

@@ -35,6 +35,7 @@
     line-height: 20px;
     background-color: #282c34;
 }
+
 </style>
 <script>
  import Vue from 'vue'
@@ -63,6 +64,7 @@ export default {
   data () {
     return {
        contentLists:[],
+       value1: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
        userLists: [],
        commitList: []
     }

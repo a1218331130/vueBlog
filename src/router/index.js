@@ -1,13 +1,25 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import blogIndex from '@/views/index'
-import issueComponent from '@/views/issue'
-import detailComponent from '@/views/detail'
-import autorComponent from '@/views/autor'
-import musicComponent from '../components/music/music'
-import courseComponent from '../components/course/course'
-import loginComponent from '../components/common/login'
-import chatComponent from '../components/chat/chat'
+// import blogIndex from '@/views/index'
+// import issueComponent from '@/views/issue'
+// import detailComponent from '@/views/detail'
+// import autorComponent from '@/views/autor'
+// import articleComponent from '@/views/article'
+// import musicComponent from '../components/music/music'
+// import courseComponent from '../components/course/course'
+// import loginComponent from '../components/common/login'
+// import chatComponent from '../components/chat/chat'
+
+const blogIndex = ()=>import("@/views/index")
+const issueComponent = ()=>import("@/views/issue")
+const detailComponent = ()=>import("@/views/detail")
+const autorComponent = ()=>import("@/views/autor")
+const articleComponent = ()=>import("@/views/article")
+const firstPageComponent = ()=>import("@/views/first-page")
+const musicComponent = ()=>import("../components/music/music")
+const courseComponent = ()=>import("../components/course/course")
+const loginComponent = ()=>import("../components/common/login")
+const chatComponent = ()=>import("../components/chat/chat")
 // import NProgress from 'nprogress'
 // import 'nprogress/nprogress.css'
 Vue.use(Router)
@@ -15,16 +27,23 @@ const routes = [
   {
     path: '/',
     name: 'blogIndex',
-    redirect: '/blog',
+    redirect: '/blog/firstPage',
     component: blogIndex
   },
   {
     path: '/blog',
     name: 'blogIndex',
-    component: blogIndex
+    component: blogIndex,
+    children: [
+       {
+        path: '/blog/firstPage',
+        name: 'firstPage',
+        component: firstPageComponent
+       }
+    ]
   },
   {
-    path: '/blog/detail',
+    path: '/detail',
     name: 'detail',
     component: detailComponent
   },
@@ -32,6 +51,11 @@ const routes = [
     path: '/issue',
     name: 'issue',
     component: issueComponent
+  },
+  {
+    path: '/article',
+    name: 'article',
+    component: articleComponent
   },
   {
     path: '/autor',

@@ -26,7 +26,7 @@
         </div>
          <div class="ql-container ql-snow" style="border:0px solid #ccc">
              <div class="ql-editor" style="overflow-x:hidden">
-                 <div v-html="datas" class="htmlContent"></div>
+                 <div v-highlight class="markdown-body" v-html="issueContentData"></div>
              </div>       
          </div>
     </article>
@@ -120,19 +120,6 @@
     <login-dialog :dialog="loginDialogs" @close="closeDialog" @getUser="getUserName"></login-dialog>
 </div>
 </template>
-<style>
-@import '../../../static/css/quill.core.css';
-@import '../../../static/css/quill.snow.css';
-@import '../../../static/css/quill.bubble.css';
-@import 'highlight.js/styles/xcode.css';
-.ql-snow .ql-editor pre.ql-syntax{
-    font-size: 14px;
-}
-.ql-snow .ql-editor blockquote{
-    font-size: 16px;
-}
-</style>
-
 <style scoped>
 .at{
     color: #3690cf;
@@ -304,12 +291,31 @@ a:visited {
 <script>
 import {mapState, mapGetters} from "vuex";//通过ES6的对象解构赋值
 import loginDialog from '../header/loginDialog'
+ import Vue from 'vue'
+ import hljs from 'highlight.js'
+ import marked from 'marked'
+//  import 'mavon-editor/dist/css/index.css'
+ import '@/assets/css/github-markdown.min.css'
+ import 'mavon-editor/dist/highlightjs/styles/hybrid.min.css'
+ 
+//封装成一个指令
+Vue.directive('highlight', (el) => {
+    let blocks = el.querySelectorAll('pre code')
+    blocks.forEach((block) => {
+        hljs.highlightBlock(block)
+    })
+})
 export default {
   components: {
     loginDialog
   },
   computed: {
-     ...mapGetters(['useName'])
+     ...mapGetters(['useName']),
+     issueContentData() {
+        var content = marked(this.datas);
+        console.log(content,'contentcontentcontentcontent');
+        return content
+     }
   },
   data () {
     return {

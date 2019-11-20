@@ -39,7 +39,7 @@
             </div>
             <div class="pop-music" title="音乐"></div>
             <div class="mid-col" v-if="myChoose === '我的首页'">
-               <div class="myIndex">
+               <div class="myIndex" style="overflow:auto;height:calc(100vh)">
                     <div class="mod_search" style="background-image:url(https://y.gtimg.cn/mediastyle/yqq/img/bg_search.jpg);">
                         <div class="search">
                             <el-input placeholder="请输入内容" v-model="searchParams.query" class="search-input">
@@ -138,9 +138,9 @@
                             :total="totalMusic">
                         </el-pagination>
                     </div>
-                    <div class="audioUrl">
+                    <!-- <div class="audioUrl">
                         <audio :src="musicUrl" controls="controls" autoplay="autoplay"></audio>
-                    </div>
+                    </div> -->
                </div>  
             </div>       
             <!-- 我的收藏  -->

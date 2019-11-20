@@ -14,24 +14,26 @@ import VueSocketio from 'vue-socket.io';
 // import NProgress from 'nprogress'
 // import 'nprogress/nprogress.css'
 // 注入路由守卫
-// import guarder from './help/guarder'
+import guarder from './help/guarder'
 import http from './help/http'
 // import socketio from 'socket.io-client';
 import VueQuillEditor from 'vue-quill-editor'
 // require styles
-import 'quill/dist/quill.core.css'
-import 'quill/dist/quill.snow.css'
-import 'quill/dist/quill.bubble.css'
+// import 'quill/dist/quill.core.css'
+// import 'quill/dist/quill.snow.css'
+// import 'quill/dist/quill.bubble.css'
 // 注册路由守卫
-// guarder(router)
+guarder(router)
 Vue.use(VueSocketio,'http://localhost:3000/');
 Vue.use(VueLazyLoad,{
     error:'../static/loading.gif',
     loading:'../static/loading.gif'
 })
+import animated from 'animate.css' // npm install animate.css --save安装，在引入
 // Vue.prototype.http = http;
 Vue.use(VueJsonp)
 Vue.use(VueQuillEditor, /* { default global options } */)
+Vue.use(animated)
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 /* eslint-disable no-new */
