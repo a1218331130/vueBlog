@@ -68,3 +68,10 @@ npm run build
 
 7.添加animate.css动画插件
 
+## 博客页面
+
+![image](https://github.com/a1218331130/vueBlog/blob/master/static/blogImage/%E4%B8%BB%E9%A1%B5.PNG)
+![image](https://github.com/a1218331130/vueBlog/blob/master/static/blogImage/%E5%8F%91%E5%B8%83.PNG)
+![image](https://github.com/a1218331130/vueBlog/blob/master/static/blogImage/%E7%99%BB%E9%99%86%E9%A1%B5%E9%9D%A2.PNG)
+![image](https://github.com/a1218331130/vueBlog/blob/master/static/blogImage/%E8%AF%A6%E6%83%85.PNG)
+![image](https://github.com/a1218331130/vueBlog/blob/master/static/blogImage/%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.png)
