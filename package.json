@@ -27,6 +27,7 @@
     "quill-image-resize-module": "^3.0.0",
     "socket.io-client": "^2.2.0",
     "vue": "^2.5.2",
+    "vue-cute-timeline": "^1.2.8",
     "vue-jsonp": "^0.1.8",
     "vue-lazyload": "^1.2.6",
     "vue-quill-editor": "^3.0.6",

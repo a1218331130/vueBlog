@@ -6,8 +6,8 @@
                  </el-form-item>
                   <el-form-item label="文章类型" prop="region">
                     <el-select size="small" v-model="ruleForm.region" placeholder="请选择文章类型">
-                      <el-option label="首页" value="首页"></el-option>
-                      <el-option label="VUE" value="VUE"></el-option>
+                      <el-option v-for="(item, index) in tages" :key="index" :label="item.name" :value="item.name"></el-option>
+                      <!-- <el-option label="VUE" value="VUE"></el-option> -->
                     </el-select>
                    </el-form-item>
                    <el-form-item>
@@ -72,6 +72,7 @@
   // import '@/assets/css/dark.min.css'
   import {mapState, mapGetters} from "vuex" //通过ES6的对象解构赋值
   import marked from 'marked'
+  const tages = require('../../static/json/tages.json');
   export default {
   components: {
     // quillRedefine,
@@ -80,6 +81,7 @@
   },
   data () {
     return {
+      tages: tages,
       issueContent: '',
        ruleForm: {
           name: '',

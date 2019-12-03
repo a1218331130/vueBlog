@@ -215,7 +215,7 @@ img {
             //  console.log(val);
                 let getLists = {
                     type: 'post',
-                    path: '/menu/getList',
+                    path: '/menu/getNewList',
                     datas: {
                         menuName: this.menuIndex,
                         pageSize: 10,
@@ -234,11 +234,11 @@ img {
             },
             // 展示详情
             showDetail(id) {
-               let routeData = this.$router.resolve({
-                   name: 'detail',
+               this.$router.push({
+                   path: 'detail',
                    query: {id: id}
                 });
-                window.open(routeData.href, '_blank');
+                // window.open(routeData.href, '_blank');
             }
         }
 

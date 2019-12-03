@@ -321,7 +321,7 @@ Router.post('/getList', function(req, res, next){
             menuName: req.body.menuName
         }
     }
-    console.log(params, 'params');
+    console.log(params, 'params1212'); 
     let pageSize = req.body.pageSize;
     let pageIndex = req.body.pageIndex;
     let skip = (pageIndex-1)*pageSize;
@@ -381,11 +381,20 @@ Router.post('/getList', function(req, res, next){
     // });
 });
 
-// 获取z最新数据
+// 获取z最新数据skip(0).limit(5).
 Router.post('/getNewList', function(req, res, next){
     let params = {
+        menuName: req.body.menuName
     };
-    contentListModel.find(params).skip(0).limit(5).sort({detailId:-1}).exec(function(err,doc){
+    if(req.body.menuName === '我的首页') {
+        params  = {}
+    }else {
+        params = {
+            menuName: req.body.menuName
+        }
+    }
+    console.log(params, 'params12123333'); 
+    contentListModel.find(params).sort({detailId:-1}).exec(function(err,doc){
         if(err) {
             res.json({
                 states: 0,

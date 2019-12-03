@@ -5,7 +5,7 @@
       <span class="site-title">
         <span class="logolink moe-mashiro">
           <a href="/">
-            <span class="sakurasono">莫沫达博客</span>
+            <!-- <span class="sakurasono">莫沫达博客</span> -->
             <!-- <span class="shironeko">blog</span> -->
           </a>
         </span>
@@ -250,6 +250,16 @@ export default {
            url: 'firstPage',
            class: 'fa-home'
          },
+         {
+           name: '标签',
+           url: 'tags',
+           class: 'fa-tags'
+         },
+         {
+           name: '开源',
+           url: 'open',
+           class: 'fa-github'
+         },
           {
            name: '音乐',
            url: 'music',
@@ -259,6 +269,11 @@ export default {
            name: '发布',
            url: 'issue',
            class: 'fa-columns'
+         },
+          {
+           name: '关于',
+           url: 'about',
+           class: 'fa-user'
          }
       ]
     }
@@ -281,6 +296,10 @@ export default {
             name: url
           });
           window.open(routeData.href, '_blank');
+       }else {
+         this.$router.push({
+              path: url
+          });
        }
      },
       loginOut() {

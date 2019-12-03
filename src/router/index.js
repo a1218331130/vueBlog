@@ -20,6 +20,9 @@ const musicComponent = ()=>import("../components/music/music")
 const courseComponent = ()=>import("../components/course/course")
 const loginComponent = ()=>import("../components/common/login")
 const chatComponent = ()=>import("../components/chat/chat")
+const tagsComponent = ()=>import("../components/tags/tags")
+const timeComponent = ()=>import("../components/tags/time-line")
+const openComponent = ()=>import("../components/open/open")
 // import NProgress from 'nprogress'
 // import 'nprogress/nprogress.css'
 Vue.use(Router)
@@ -39,13 +42,28 @@ const routes = [
         path: '/blog/firstPage',
         name: 'firstPage',
         component: firstPageComponent
+       },
+       {
+        path: '/blog/detail',
+        name: 'detail',
+        component: detailComponent
+       },
+       {
+        path: '/blog/tags',
+        name: 'tags',
+        component: tagsComponent
+       },
+       {
+        path: '/blog/timeLine',
+        name: 'timeLine',
+        component: timeComponent
+       },
+       {
+        path: '/blog/open',
+        name: 'open',
+        component: openComponent
        }
     ]
-  },
-  {
-    path: '/detail',
-    name: 'detail',
-    component: detailComponent
   },
   {
     path: '/issue',
