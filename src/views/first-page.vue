@@ -186,6 +186,7 @@ img {
 <script>
     // import navNewMenu from '@/components/header/navNewMenu'
     import {mapState, mapGetters} from "vuex";//通过ES6的对象解构赋值
+    import { getNewList } from '../base/api/blog.js'
     export default{
         components: {
         //   navNewMenu
@@ -212,19 +213,14 @@ img {
         methods: {
             // 列表数据
             getList() {
-            //  console.log(val);
-                let getLists = {
-                    type: 'post',
-                    path: '/menu/getNewList',
-                    datas: {
-                        menuName: this.menuIndex,
-                        pageSize: 10,
-                        pageIndex: 1
-                    }
-                }
                 this.loading = true;
-                this.$store.dispatch(getLists).then(res=>{
-                    if(res.data.states !== 0) {
+                let datas = {
+                    menuName: this.menuIndex,
+                    pageSize: 10,
+                    pageIndex: 1
+                }
+                getNewList(datas).then(res => {
+                   if(res.data.states !== 0) {
                         this.loading = false;
                         window.scrollTo(0,0);// 请求成功滚动条滚到顶部
                         // this.totalList = res.data.total;
