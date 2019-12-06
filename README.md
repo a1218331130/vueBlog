@@ -68,6 +68,11 @@ npm run build
 
 7.添加animate.css动画插件
 
+#1.0.2
+
+1.修复代码生成器
+https://www.jianshu.com/p/dc3a2f134991
+
 ## 博客页面
 
 ![image](https://github.com/a1218331130/vueBlog/blob/master/static/blogImage/%E4%B8%BB%E9%A1%B5.PNG)
