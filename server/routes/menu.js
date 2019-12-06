@@ -451,7 +451,7 @@ Router.post('/getArticleList', function(req, res, next){
 // 查看详情
 Router.post('/getDetail', function(req, res, next){
     let params = {
-        detailId: req.body.id
+        _id: req.body.id
     };
     var newDate = new Date();
     console.log(newDate.toLocaleDateString());

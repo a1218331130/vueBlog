@@ -14,7 +14,7 @@
                 <div class="post-date">
                     <i class="iconfont icon-time">
                     </i>{{item.time}}</div>
-                <a href="javascript:void(0)" class="post-title" @click="showDetail(item.detailId)">
+                <a href="javascript:void(0)" class="post-title" @click="showDetail(item._id)">
                     <h3 style="margin: 17.5px 0">{{item.title}}</h3>
                 </a>
                 <div class="post-meta">
