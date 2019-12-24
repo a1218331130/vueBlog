@@ -1,8 +1,14 @@
 <template>
     <div>
-       <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
+       <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;" @click="show">
         <i class="fa fa-list-ul faa-wrench" aria-hidden="true"></i>
         最新文章列表</h1>
+        <modal name="bar" draggable=".window-header">
+            <div class="window-header">DRAG ME HERE</div>
+            <div>
+                Hello, 🌎!
+            </div>
+        </modal>
         <article v-for="(item, index) in contentLists" :key="index" class="post post-list-thumb post-list-thumb-left post-list-show">
             <div class="post-thumb">
                 <a href="javascript:void(0)">
@@ -227,6 +233,9 @@ img {
                         this.contentLists = res.data.msg;
                     }
                 });
+            },
+            show() {
+              this.$modal.show('bar');
             },
             // 展示详情
             showDetail(id) {

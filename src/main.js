@@ -30,6 +30,9 @@ Vue.use(VueLazyLoad,{
     loading:'../static/loading.gif'
 })
 import animated from 'animate.css' // npm install animate.css --save安装，在引入
+import VModal from 'vue-js-modal'
+import './style/index.scss'
+Vue.use(VModal)
 // Vue.prototype.http = http;
 Vue.use(VueJsonp)
 Vue.use(VueQuillEditor, /* { default global options } */)
